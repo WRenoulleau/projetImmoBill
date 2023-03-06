@@ -9,7 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetImmoBill">
-        <activity android:name=".controleur.ConnexionActivity"></activity>
+        <activity android:name=".controleur.DetailsLocationActivity"></activity>
+        <activity android:name=".controleur.ConsultLocationActivity" />
+        <activity android:name=".controleur.AddLocationActivity" />
+        <activity android:name=".controleur.InfosReservationActivity" />
+        <activity android:name=".controleur.InfosLocataireActivity" />
+        <activity android:name=".controleur.ConfirmationActivity" />
+        <activity android:name=".controleur.DetailsLocataireActivity" />
+        <activity android:name=".controleur.ConsultLocatairesActivity" />
+        <activity android:name=".controleur.NewLocataireActivity" />
+        <activity android:name=".controleur.ConsultReservationsActivity" />
+        <activity android:name=".controleur.NewReservationActivity" />
+        <activity android:name=".controleur.ChoixUserActivity" />
+        <activity android:name=".controleur.ChoixAdminActivity" />
         <activity android:name=".controleur.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
