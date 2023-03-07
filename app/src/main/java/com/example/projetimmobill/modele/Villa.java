@@ -15,7 +15,7 @@ public class Villa {
     private String montant;
 
 
-    public Villa(int id,String nom, String adresse, String description, String pieces, float surface, String anneeConstruction, String caution, String montant){
+    public Villa(int id, String nom, String adresse,String description, String pieces, float surface, String anneeConstruction, String caution, String montant){
     this.id=id;
     this.nom=nom;
     this.adresse=adresse;
