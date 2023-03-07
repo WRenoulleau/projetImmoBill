@@ -12,13 +12,13 @@
         <activity android:name=".controleur.DetailsLocationActivity"></activity>
         <activity android:name=".controleur.ConsultLocationActivity" />
         <activity android:name=".controleur.AddLocationActivity" />
-        <activity android:name=".controleur.InfosReservationActivity" />
+        <activity android:name=".controleur.UserInfosReservationActivity" />
         <activity android:name=".controleur.InfosLocataireActivity" />
         <activity android:name=".controleur.ConfirmationActivity" />
         <activity android:name=".controleur.DetailsLocataireActivity" />
         <activity android:name=".controleur.ConsultLocatairesActivity" />
         <activity android:name=".controleur.NewLocataireActivity" />
-        <activity android:name=".controleur.ConsultReservationsActivity" />
+        <activity android:name=".controleur.UserConsultReservationsActivity" />
         <activity android:name=".controleur.NewReservationActivity" />
         <activity android:name=".controleur.ChoixUserActivity" />
         <activity android:name=".controleur.ChoixAdminActivity" />

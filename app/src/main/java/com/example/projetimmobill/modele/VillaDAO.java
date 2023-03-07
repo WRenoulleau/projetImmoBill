@@ -21,7 +21,7 @@ public class VillaDAO {
         curseur = accesBD.getReadableDatabase().rawQuery("select * from Villa where id=" + id + ";", null);
         if (curseur.getCount() > 0) {
             curseur.moveToFirst();
-            laVilla = new Villa(id,curseur.getString(1), curseur.getString(2));
+            laVilla = new Villa(id,curseur.getString(1), curseur.getString(2), curseur.getString(3), curseur.getString(4), curseur.getInt(5), curseur.getString(6), curseur.getString(7), curseur.getString(8));
         }
         return laVilla;
     }
