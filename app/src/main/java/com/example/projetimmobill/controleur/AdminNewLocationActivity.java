@@ -2,19 +2,24 @@ package com.example.projetimmobill.controleur;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
 import com.example.projetimmobill.R;
 
 public class AdminNewLocationActivity extends AppCompatActivity {
+
     private Button btnRetour;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_new_location);
+
 
         btnRetour = (Button) findViewById(R.id.btnRetour);
 
@@ -25,5 +30,6 @@ public class AdminNewLocationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

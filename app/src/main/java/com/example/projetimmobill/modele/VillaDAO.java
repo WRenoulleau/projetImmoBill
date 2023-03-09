@@ -29,7 +29,7 @@ public class VillaDAO {
         return laVilla;
     }
 
-    public ArrayList<Villa> getVilla() {
+    public ArrayList<Villa> getVillas() {
         Cursor curseur;
         String req = "select * from Villa";
         curseur = accesBD.getReadableDatabase().rawQuery(req, null);
