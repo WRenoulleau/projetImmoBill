@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.projetimmobill.R;
 
-public class ConsultLocatairesActivity extends AppCompatActivity {
+public class UserNewReservationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consult_locataires);
+        setContentView(R.layout.activity_user_new_reservation);
     }
 }

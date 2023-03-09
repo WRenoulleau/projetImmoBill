@@ -8,9 +8,9 @@ import android.util.Log;
 public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
 
     private String locataire = "CREATE TABLE IF NOT EXISTS Locataire( \n"+
-            "id             INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ," +
-            "nom            TEXT NOT NULL ,\n"+
-            "prenom         TEXT NOT NULL ,\n"+
+            "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ," +
+            "nom TEXT NOT NULL ,\n"+
+            "prenom TEXT NOT NULL ,\n"+
             "adresse        TEXT NOT NULL ,\n"+
             "tel            TEXT NOT NULL ,\n"+
             "email          TEXT NOT NULL ,\n"+
@@ -61,10 +61,10 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
             "libelle    TEXT NOT NULL)";
 
     private String user = "CREATE TABLE IF NOT EXISTS User(\n"+
-            "id             INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n"+
-            "login          TEXT NOT NULL ,\n"+
-            "password       TEXT NOT NULL ,\n"+
-            "id_TypeUser    INTEGER NOT NULL,\n"+
+            "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n"+
+            "login TEXT NOT NULL ,\n"+
+            "password TEXT NOT NULL ,\n"+
+            "id_TypeUser INTEGER NOT NULL,\n"+
 
             "CONSTRAINT User_TypeUser_FK FOREIGN KEY (id_TypeUser) REFERENCES TypeUser(id))";
 
