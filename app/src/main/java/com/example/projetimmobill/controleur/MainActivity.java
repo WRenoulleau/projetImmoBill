@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.projetimmobill.R;
+import com.example.projetimmobill.modele.Villa;
 import com.example.projetimmobill.modele.VillaDAO;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         connexion=findViewById(R.id.btnConnexion);
+
         connexion.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
