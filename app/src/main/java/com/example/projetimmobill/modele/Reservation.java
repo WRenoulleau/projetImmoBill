@@ -2,7 +2,7 @@ package com.example.projetimmobill.modele;
 
 import java.util.Date;
 
-public class Réservation {
+public class Reservation {
 
     private int id;
     private String dateArrivee;
@@ -13,7 +13,7 @@ public class Réservation {
     private String montant;
     private int optionMenage;
 
-    public Réservation(int id, String dateArrivee, String dateDepart, int nbAdultes, int nbEnfants, String dateResa, String montant, int optionMenage){
+    public Reservation(int id, String dateArrivee, String dateDepart, int nbAdultes, int nbEnfants, String dateResa, String montant, int optionMenage){
         this.id=id;
         this.dateArrivee=dateArrivee;
         this.dateDepart=dateDepart;
