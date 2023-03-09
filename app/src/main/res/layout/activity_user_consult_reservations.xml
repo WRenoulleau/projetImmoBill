@@ -7,7 +7,7 @@
     tools:context=".controleur.UserConsultReservationsActivity">
 
     <ListView
-        android:id="@+id/listReservation"
+        android:id="@+id/listMesReservations"
         android:layout_width="380dp"
         android:layout_height="624dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -11,16 +11,26 @@ import com.example.projetimmobill.R;
 
 public class ChoixUserActivity extends AppCompatActivity {
 
-    private Button consult;
+    private Button consultResa, newResa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix_user);
-        consult=findViewById(R.id.btnConsultUser);
-        consult.setOnClickListener(new View.OnClickListener(){
+      
+        consultResa=findViewById(R.id.btnConsultMesResa);
+        consultResa.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), UserConsultReservationsActivity.class);
+                startActivity(intent);
+            }
+        });
+        newResa=findViewById(R.id.btnNewUserResa);
+        newResa.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), UserNewReservationActivity.class);
                 startActivity(intent);
             }
         });
