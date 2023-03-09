@@ -16,7 +16,7 @@ public class ChoixUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix_user);
-        consult=findViewById(R.id.btnConsultUser);
+        consult=findViewById(R.id.btnConsultMesResa);
         consult.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
