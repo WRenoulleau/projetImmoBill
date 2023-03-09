@@ -21,7 +21,6 @@ public class ChoixUserActivity extends AppCompatActivity {
       
         consultResa=findViewById(R.id.btnConsultMesResa);
         consultResa.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), UserConsultReservationsActivity.class);

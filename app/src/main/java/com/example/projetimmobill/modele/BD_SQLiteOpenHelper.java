@@ -37,11 +37,11 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
 
     private String reservation= "CREATE TABLE IF NOT EXISTS Reservation(\n" +
             "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n" +
-            "dateArrivee NUMERIC NOT NULL ,\n"+
-            "dateDepart NUMERIC NOT NULL ,\n"+
+            "dateArrivee TEXT NOT NULL ,\n"+
+            "dateDepart TEXT NOT NULL ,\n"+
             "nbAdultes INTEGER NOT NULL ,\n"+
             "nbEnfants INTEGER NOT NULL ,\n"+
-            "dateResa NUMERIC NOT NULL ,\n"+
+            "dateResa TEXT NOT NULL ,\n"+
             "montant TEXT NOT NULL ,\n"+
             "optionMenage INTEGER NOT NULL ,\n"+
             "id_Locataire INTEGER NOT NULL ,\n"+
