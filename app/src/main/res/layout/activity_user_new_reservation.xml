@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controleur.ConsultLocatairesActivity">
+    tools:context=".controleur.UserNewReservationActivity">
 
     <ListView
-        android:id="@+id/listLocataires"
+        android:id="@+id/listReservation"
         android:layout_width="380dp"
         android:layout_height="624dp"
         app:layout_constraintBottom_toBottomOf="parent"
