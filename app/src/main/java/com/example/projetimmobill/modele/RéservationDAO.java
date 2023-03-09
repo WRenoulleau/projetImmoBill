@@ -21,7 +21,7 @@ public class RéservationDAO {
         curseur = accesBD.getReadableDatabase().rawQuery("select * from Réservation where id=" + id + ";", null);
         if (curseur.getCount() > 0) {
             curseur.moveToFirst();
-            laRéservation = new Réservation(id,curseur.getString(1), curseur.getString(2), curseur.getInt(3), curseur.getInt(4), curseur.getString(5), curseur.getString(6), curseur.getString(7));
+            laRéservation = new Réservation(id,curseur.getString(1), curseur.getString(2), curseur.getInt(3), curseur.getInt(4), curseur.getString(5), curseur.getString(6), curseur.getInt(7));
         }
         return laRéservation;
     }
@@ -42,7 +42,7 @@ public class RéservationDAO {
         int nbEnfants;
         String dateResa;
         String montant;
-        String optionMenage;
+        int optionMenage;
 
         curseur.moveToFirst();
         while (!curseur.isAfterLast()) {
@@ -53,7 +53,7 @@ public class RéservationDAO {
             nbEnfants = curseur.getInt(4);
             dateResa = curseur.getString(5);
             montant = curseur.getString(6);
-            optionMenage = curseur.getString(7);
+            optionMenage = curseur.getInt(7);
 
             listeRéservation.add(new Réservation(id, dateArrivee, dateDepart, nbAdultes, nbEnfants, dateResa, montant, optionMenage));
             curseur.moveToNext();

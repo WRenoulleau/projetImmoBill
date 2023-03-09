@@ -11,9 +11,9 @@ public class Réservation {
     private int nbEnfants;
     private String dateResa;
     private String montant;
-    private String optionMenage;
+    private int optionMenage;
 
-    public Réservation(int id, String dateArrivee, String dateDepart, int nbAdultes, int nbEnfants, String dateResa, String montant, String optionMenage){
+    public Réservation(int id, String dateArrivee, String dateDepart, int nbAdultes, int nbEnfants, String dateResa, String montant, int optionMenage){
         this.id=id;
         this.dateArrivee=dateArrivee;
         this.dateDepart=dateDepart;
@@ -80,11 +80,11 @@ public class Réservation {
         this.montant= montant;
     }
 
-    public String getOptionMenage() {
+    public int getOptionMenage() {
         return optionMenage;
     }
 
-    public void setOptionMenage(String optionMenage) {
+    public void setOptionMenage(int optionMenage) {
         this.optionMenage = optionMenage;
     }
 
