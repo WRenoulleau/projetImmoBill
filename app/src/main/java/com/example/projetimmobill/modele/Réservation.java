@@ -5,15 +5,15 @@ import java.util.Date;
 public class Réservation {
 
     private int id;
-    private Date dateArrivee;
-    private Date dateDepart;
+    private String dateArrivee;
+    private String dateDepart;
     private int nbAdultes;
     private int nbEnfants;
-    private Date dateResa;
+    private String dateResa;
     private String montant;
-    private Boolean optionMenage;
+    private int optionMenage;
 
-    public Réservation(int id, Date dateArrivee, Date dateDepart, int nbAdultes, int nbEnfants, Date dateResa, String montant, Boolean optionMenage){
+    public Réservation(int id, String dateArrivee, String dateDepart, int nbAdultes, int nbEnfants, String dateResa, String montant, int optionMenage){
         this.id=id;
         this.dateArrivee=dateArrivee;
         this.dateDepart=dateDepart;
@@ -32,19 +32,19 @@ public class Réservation {
         this.id = id;
     }
 
-    public Date getDateArrivee() {
+    public String getDateArrivee() {
         return dateArrivee;
     }
 
-    public void setDateArrivee(Date dateArrivee) {
+    public void setDateArrivee(String dateArrivee) {
         this.dateArrivee = dateArrivee;
     }
 
-    public Date getDateDepart() {
+    public String getDateDepart() {
         return dateDepart;
     }
 
-    public void setDateDepart(Date dateDepart) {
+    public void setDateDepart(String dateDepart) {
         this.dateDepart = dateDepart;
     }
 
@@ -64,11 +64,11 @@ public class Réservation {
         this.nbEnfants = nbEnfants;
     }
 
-    public Date getDateResa() {
+    public String getDateResa() {
         return dateResa;
     }
 
-    public void setDateResa(Date dateResa) {
+    public void setDateResa(String dateResa) {
         this.dateResa = dateResa;
     }
 
@@ -80,11 +80,11 @@ public class Réservation {
         this.montant= montant;
     }
 
-    public Boolean getOptionMenage() {
+    public int getOptionMenage() {
         return optionMenage;
     }
 
-    public void setOptionMenage(Boolean optionMenage) {
+    public void setOptionMenage(int optionMenage) {
         this.optionMenage = optionMenage;
     }
 

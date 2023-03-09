@@ -1,8 +1,10 @@
 package com.example.projetimmobill.modele;
 
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
@@ -14,14 +16,15 @@ public class VillaDAO {
     public VillaDAO(Context ct) {
         accesBD = new BD_SQLiteOpenHelper(ct, base, null, version);
     }
-                                                                                                                            // CONSULTER
+
+    // CONSULTER
     public Villa getVilla(int id) {
         Villa laVilla = null;
         Cursor curseur;
         curseur = accesBD.getReadableDatabase().rawQuery("select * from Villa where id=" + id + ";", null);
         if (curseur.getCount() > 0) {
             curseur.moveToFirst();
-            laVilla = new Villa(id,curseur.getString(1), curseur.getString(2), curseur.getString(3), curseur.getString(4), curseur.getInt(5), curseur.getString(6), curseur.getString(7), curseur.getString(8));
+            laVilla = new Villa(id, curseur.getString(1), curseur.getString(2), curseur.getString(3), curseur.getString(4), curseur.getInt(5), curseur.getString(6), curseur.getString(7), curseur.getString(8));
         }
         return laVilla;
     }
@@ -60,5 +63,26 @@ public class VillaDAO {
             curseur.moveToNext();
         }
         return listeVilla;
-    }                                                                                                                                   //FIN CONSULER
+    }
+    //FIN CONSULER
+
+    // AJOUTER
+    public long addVilla(Villa uneVilla) {
+        long ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+
+        ContentValues value = new ContentValues();
+        value.put("id", uneVilla.getId());
+        value.put("nom", uneVilla.getNom());
+        value.put("adresse", uneVilla.getAdresse());
+        value.put("description", uneVilla.getDescription());
+        value.put("pieces", uneVilla.getPieces());
+        value.put("surface", uneVilla.getSurface());
+        value.put("anneeConstruction", uneVilla.getAnneeConstruction());
+        value.put("caution", uneVilla.getCaution());
+        value.put("montant", uneVilla.getMontant());
+        ret = bd.insert("Villa", null, value);
+
+        return ret;
+    } //FIN AJOUTER
 }

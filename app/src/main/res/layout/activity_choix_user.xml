@@ -8,7 +8,9 @@
 
     <Button
         android:id="@+id/btnConsultMesResa"
-        android:layout_width="266dp"
+
+        android:layout_width="290dp"
+
         android:layout_height="46dp"
         android:text="Consulter mes réservations"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,7 +22,9 @@
 
     <Button
         android:id="@+id/btnNewUserResa"
-        android:layout_width="266dp"
+
+        android:layout_width="290dp"
+
         android:layout_height="46dp"
         android:text="Nouvelle réservation"
         app:layout_constraintBottom_toBottomOf="parent"
