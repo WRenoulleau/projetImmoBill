@@ -102,11 +102,11 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
                 "('El Magnifico Willem', '5 avenue des Champs Elysees', 'elle est a son prime', '3', '69', '1999', '1000','200', '3'),\n" +
                 "('La Sterenn', '5 chemin du bonheur', 'belle villa', '1', '23', '2002', '500000','5000', '4');");
 
-        db.execSQL("INSERT INTO typeVilla (nom,nbCouchage) VALUES\n" +
+        db.execSQL("INSERT INTO typeVilla (nom,nbCouchages) VALUES\n" +
                 "('T1', '1'),\n" +
                 "('T2', '2'),\n" +
                 "('T3', '3'),\n" +
-                "('Studio', '1');");
+                "('Studio', '1')");
 
         db.execSQL("INSERT INTO typeUser (libelle) VALUES\n" +
                 "('admin')," +
@@ -119,7 +119,7 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
                 "('nouveau', 'nouveau',2);");
 
         db.execSQL("INSERT INTO locataire (nom,prenom,adresse,tel,email,commentaire) VALUES\n" +
-                "('Marlats', 'Iban', '1 au sommet du monde','0789456321','le meilleur locataire');");
+                "('Marlats', 'Iban', '1 au sommet du monde','0789456321','ff','le pire locataire');");
 
 
         Log.d("log","base de test cree");

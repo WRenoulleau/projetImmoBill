@@ -100,6 +100,6 @@ public class Villa {
     }
 
     public String toString(){
-        return("id"+id+"nom"+nom+"adresse"+adresse+"description"+description+"pieces"+pieces+"surface"+surface+"anneeConstruction"+anneeConstruction+"caution"+caution+"montant"+montant);
+        return(nom);
     }
 }
