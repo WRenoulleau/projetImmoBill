@@ -1,7 +1,9 @@
 package com.example.projetimmobill.modele;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -59,5 +61,24 @@ public class RéservationDAO {
             curseur.moveToNext();
         }
         return listeRéservation;
+    }
+
+    // AJOUTER
+    public long addRéservation(Réservation uneRéservation) {
+        long ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+
+        ContentValues value = new ContentValues();
+        value.put("id", uneRéservation.getId());
+        value.put("dateArrivee", uneRéservation.getDateArrivee());
+        value.put("dateDepard", uneRéservation.getDateDepart());
+        value.put("nbAdultes", uneRéservation.getNbAdultes());
+        value.put("nbEnfants", uneRéservation.getNbEnfants());
+        value.put("dateResa", uneRéservation.getDateResa());
+        value.put("montant", uneRéservation.getMontant());
+        value.put("optionMenage", uneRéservation.getOptionMenage());
+        ret = bd.insert("Réservation", null, value);
+
+        return ret;
     }
 }
