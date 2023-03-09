@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.example.projetimmobill.R;
 
-public class InfosLocataireActivity extends AppCompatActivity {
+public class AdminConsultLocationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_infos_locataire);
+        setContentView(R.layout.activity_admin_consult_location);
     }
 }

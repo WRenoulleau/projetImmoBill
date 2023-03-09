@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controleur.NewLocataireActivity">
+    tools:context=".controleur.AdminDetailsLocataireActivity">
 
     <EditText
         android:id="@+id/editNomLocataire"
@@ -157,10 +157,10 @@
         app:layout_constraintVertical_bias="0.477" />
 
     <Button
-        android:id="@+id/btnAjouterLocataire"
+        android:id="@+id/btnModifierLocataire"
         android:layout_width="266dp"
         android:layout_height="46dp"
-        android:text="Ajouter"
+        android:text="Modifier"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -184,7 +184,7 @@
         android:id="@+id/textTitre"
         android:layout_width="381dp"
         android:layout_height="45dp"
-        android:text="Nouveau Locataire"
+        android:text="Details Locataire"
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
