@@ -1,7 +1,9 @@
 package com.example.projetimmobill.modele;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
@@ -51,4 +53,18 @@ public class TypeVillaDAO {
         }
         return listeTypeVilla;
     }
+    // AJOUTER
+    public long addTypeVilla(TypeVilla unTypeVilla) {
+        long ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+
+        ContentValues value = new ContentValues();
+        value.put("id", unTypeVilla.getId());
+        value.put("nom", unTypeVilla.getNom());
+        value.put("nbCouchages", unTypeVilla.getNbCouchages());
+
+        ret = bd.insert("Villa", null, value);
+
+        return ret;
+    } //FIN AJOUTER
 }

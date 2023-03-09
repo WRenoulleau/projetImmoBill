@@ -1,7 +1,9 @@
 package com.example.projetimmobill.modele;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
@@ -59,4 +61,22 @@ public class LocataireDAO {
         }
         return listeLocataires;
     }
+
+    // AJOUTER
+    public long addLocataire(Locataire unLocataire) {
+        long ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+
+        ContentValues value = new ContentValues();
+        value.put("id", unLocataire.getId());
+        value.put("nom", unLocataire.getNom());
+        value.put("prenom", unLocataire.getPrenom());
+        value.put("adresse", unLocataire.getAdresse());
+        value.put("tel", unLocataire.getTel());
+        value.put("email", unLocataire.getEmail());
+        value.put("commentaire", unLocataire.getCommentaire());
+        ret = bd.insert("Villa", null, value);
+
+        return ret;
+    } //FIN AJOUTER
 }
