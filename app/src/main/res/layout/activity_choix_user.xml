@@ -7,7 +7,7 @@
     tools:context=".controleur.ChoixUserActivity">
 
     <Button
-        android:id="@+id/btnConsultMesResa"
+        android:id="@+id/btnConsultMesResas"
 
         android:layout_width="290dp"
 
