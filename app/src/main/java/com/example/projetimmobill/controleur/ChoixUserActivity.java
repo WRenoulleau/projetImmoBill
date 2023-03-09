@@ -12,10 +12,12 @@ import com.example.projetimmobill.R;
 public class ChoixUserActivity extends AppCompatActivity {
 
     private Button consultResa, newResa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choix_user);
+      
         consultResa=findViewById(R.id.btnConsultMesResa);
         consultResa.setOnClickListener(new View.OnClickListener(){
             @Override

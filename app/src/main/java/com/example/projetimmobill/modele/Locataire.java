@@ -20,6 +20,8 @@ public class Locataire {
         this.commentaire=commentaire;
     }
 
+
+
     public int getId() {
         return id;
     }

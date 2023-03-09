@@ -11,54 +11,55 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
             "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ," +
             "nom TEXT NOT NULL ,\n"+
             "prenom TEXT NOT NULL ,\n"+
-            "adresse        TEXT NOT NULL ,\n"+
-            "tel            TEXT NOT NULL ,\n"+
-            "email          TEXT NOT NULL ,\n"+
-            "commentaire    TEXT NOT NULL)";
+            "adresse TEXT NOT NULL ,\n"+
+            "tel TEXT NOT NULL ,\n"+
+            "email TEXT NOT NULL ,\n"+
+            "commentaire TEXT NOT NULL)";
 
     private String typeVilla = "CREATE TABLE IF NOT EXISTS TypeVilla( \n" +
-            "id             INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n"+
-            "nom            TEXT NOT NULL ,\n"+
-            "nbCouchages    INTEGER NOT NULL)";
+            "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n"+
+            "nom TEXT NOT NULL ,\n"+
+            "nbCouchages INTEGER NOT NULL)";
 
     private String villa = "CREATE TABLE IF NOT EXISTS villa (\n" +
-            "  id                   INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n" +
-            "nom                  TEXT NOT NULL ,\n" +
-            "adresse              TEXT NOT NULL ,\n" +
-            "description          TEXT NOT NULL ,\n" +
-            "pieces               TEXT NOT NULL ,\n" +
-            "surface              REAL NOT NULL ,\n" +
-            "anneeConstruction    TEXT NOT NULL ,\n" +
-            "caution              TEXT NOT NULL ,\n" +
-            "montant              TEXT NOT NULL ,\n" +
-            "id_TypeVilla         INTEGER NOT NULL,\n" +
+            " id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n" +
+            "nom TEXT NOT NULL ,\n" +
+            "adresse TEXT NOT NULL ,\n" +
+            "description TEXT NOT NULL ,\n" +
+            "pieces TEXT NOT NULL ,\n" +
+            "surface REAL NOT NULL ,\n" +
+            "anneeConstruction TEXT NOT NULL ,\n" +
+            "caution TEXT NOT NULL ,\n" +
+            "montant TEXT NOT NULL ,\n" +
+            "id_TypeVilla INTEGER NOT NULL,\n" +
             "CONSTRAINT Villa_TypeVilla_FK FOREIGN KEY (id_TypeVilla) REFERENCES TypeVilla(id))";
 
-    private String reservation= "CREATE TABLE IF NOT EXISTS Reservation(\n"+
-            "id              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n"+
-            "dateArrivee     NUMERIC NOT NULL ,\n"+
-            "dateDepart      NUMERIC NOT NULL ,\n"+
-            "nbAdultes       INTEGER NOT NULL ,\n"+
-            "nbEnfants       INTEGER NOT NULL ,\n"+
-            "dateResa        NUMERIC NOT NULL ,\n"+
-            "montant         TEXT NOT NULL ,\n"+
-            "optionMenage    INTEGER NOT NULL ,\n"+
-            "id_Locataire    INTEGER NOT NULL ,\n"+
-            "id_Villa        INTEGER NOT NULL,\n"+
+
+    private String reservation= "CREATE TABLE IF NOT EXISTS Reservation(\n" +
+            "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n" +
+            "dateArrivee NUMERIC NOT NULL ,\n"+
+            "dateDepart NUMERIC NOT NULL ,\n"+
+            "nbAdultes INTEGER NOT NULL ,\n"+
+            "nbEnfants INTEGER NOT NULL ,\n"+
+            "dateResa NUMERIC NOT NULL ,\n"+
+            "montant TEXT NOT NULL ,\n"+
+            "optionMenage INTEGER NOT NULL ,\n"+
+            "id_Locataire INTEGER NOT NULL ,\n"+
+            "id_Villa INTEGER NOT NULL,\n"+
 
             "CONSTRAINT Reservation_Locataire_FK FOREIGN KEY (id_Locataire) REFERENCES Locataire(id),\n"+
             "CONSTRAINT Reservation_Villa0_FK FOREIGN KEY (id_Villa) REFERENCES Villa(id))";
 
     private  String equipement = "CREATE TABLE Equipement(\n"+
-            "id             INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n"+
-            "nom            TEXT NOT NULL ,\n"+
-            "etat           TEXT NOT NULL ,\n"+
-            "description    TEXT NOT NULL ,\n"+
-            "caution        TEXT NOT NULL)";
+            "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n"+
+            "nom TEXT NOT NULL ,\n"+
+            "etat TEXT NOT NULL ,\n"+
+            "description TEXT NOT NULL ,\n"+
+            "caution TEXT NOT NULL)";
 
     private String typeUser = "CREATE TABLE IF NOT EXISTS TypeUser(\n"+
-            "id         INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n"+
-            "libelle    TEXT NOT NULL)";
+            "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n"+
+            "libelle TEXT NOT NULL)";
 
     private String user = "CREATE TABLE IF NOT EXISTS User(\n"+
             "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n"+
@@ -69,9 +70,9 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
             "CONSTRAINT User_TypeUser_FK FOREIGN KEY (id_TypeUser) REFERENCES TypeUser(id))";
 
     private String equiper = "CREATE TABLE IF NOT EXISTS Equiper("+
-            "id               INTEGER NOT NULL ,"+
-            "id_Equipement    INTEGER NOT NULL ,"+
-            "qte              INTEGER NOT NULL,"+
+            "id INTEGER NOT NULL ,"+
+            "id_Equipement INTEGER NOT NULL ,"+
+            "qte INTEGER NOT NULL,"+
             "CONSTRAINT Equiper_PK PRIMARY KEY (id,id_Equipement)"+
 
 	        "CONSTRAINT Equiper_Villa_FK FOREIGN KEY (id) REFERENCES Villa(id)"+
