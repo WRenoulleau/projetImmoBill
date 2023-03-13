@@ -79,6 +79,6 @@ public class Locataire {
     }
 
     public String toString(){
-        return("id"+id+"nom"+nom+"prenom"+prenom+"adresse"+adresse+"tel"+tel+"email"+email+"commentaire"+commentaire);
+        return(id+" "+nom+" "+prenom+", "+adresse+" , "+tel+" , "+email+"   commentaire:"+commentaire);
     }
 }
