@@ -114,8 +114,10 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
 
         db.execSQL("INSERT INTO user (login,password,id_TypeUser) VALUES\n" +
                 "('imarlats3.85', 'iabpaa',1),\n" +
+                "('root', 'root',1),\n" +
                 "('wre', 'masterclass',1),\n" +
                 "('unLogin', 'unPass',2),\n" +
+                "('a', 'a',2),\n" +
                 "('nouveau', 'nouveau',2);");
 
         db.execSQL("INSERT INTO locataire (nom,prenom,adresse,tel,email,commentaire) VALUES\n" +

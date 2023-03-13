@@ -22,12 +22,12 @@ public class UserDAO {
         curseur = accesBD.getReadableDatabase().rawQuery("select * from User where id=" + id + ";", null);
         if (curseur.getCount() > 0) {
             curseur.moveToFirst();
-            leUser = new User(id,curseur.getString(1), curseur.getString(2));
+            leUser = new User(id,curseur.getString(1), curseur.getString(2), curseur.getInt(3));
         }
         return leUser;
     }
 
-    public ArrayList<User> getUser() {
+    public ArrayList<User> getUsers() {
         Cursor curseur;
         String req = "select * from User";
         curseur = accesBD.getReadableDatabase().rawQuery(req, null);
@@ -39,6 +39,7 @@ public class UserDAO {
         int id;
         String login;
         String password;
+        int type;
 
 
         curseur.moveToFirst();
@@ -46,9 +47,24 @@ public class UserDAO {
             id = curseur.getInt(0);
             login = curseur.getString(1);
             password = curseur.getString(2);
-            listeUser.add(new User(id, login, password));
+            type = curseur.getInt(3);
+            listeUser.add(new User(id, login, password, type));
             curseur.moveToNext();
         }
         return listeUser;
+    }
+    public String seConnecter(String unLogin, String unMdp)
+    {
+        ArrayList<User> list = this.getUsers();
+        String retour="erreur";
+        for (User unUser:list) {
+            if (unUser.getLogin().equals(unLogin) && unUser.getPassword().equals(unMdp) && unUser.getType()==1) {
+                return retour="admin";
+            }
+            if(unUser.getLogin().equals(unLogin) && unUser.getPassword().equals(unMdp) && unUser.getType()==2){
+                return retour="locataire";
+            }
+        }
+        return retour ;
     }
 }
