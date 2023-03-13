@@ -4,11 +4,21 @@ public class User {
     private int id;
     private String login;
     private String password;
+    private int type;
 
-    public User(int id, String login, String password){
+    public User(int id, String login, String password, int type){
         this.id=id;
         this.login=login;
         this.password=password;
+        this.type=type;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public int getId() {

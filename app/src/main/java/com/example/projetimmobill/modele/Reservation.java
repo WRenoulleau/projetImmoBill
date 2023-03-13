@@ -12,8 +12,10 @@ public class Reservation {
     private String dateResa;
     private String montant;
     private int optionMenage;
+    private int idVilla;
+    private int idLocataire;
 
-    public Reservation(int id, String dateArrivee, String dateDepart, int nbAdultes, int nbEnfants, String dateResa, String montant, int optionMenage){
+    public Reservation(int id, String dateArrivee, String dateDepart, int nbAdultes, int nbEnfants, String dateResa, String montant, int optionMenage,int idVilla,int idLocataire){
         this.id=id;
         this.dateArrivee=dateArrivee;
         this.dateDepart=dateDepart;
@@ -22,6 +24,24 @@ public class Reservation {
         this.dateResa=dateResa;
         this.montant=montant;
         this.optionMenage=optionMenage;
+        this.idVilla=idVilla;
+        this.idLocataire=idLocataire;
+    }
+
+    public int getIdV() {
+        return idVilla;
+    }
+
+    public void setIdV(int typeV) {
+        this.idVilla = typeV;
+    }
+
+    public int getIdLocataire() {
+        return idLocataire;
+    }
+
+    public void setIdLocataire(int idLocataire) {
+        this.idLocataire = idLocataire;
     }
 
     public int getId() {
