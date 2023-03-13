@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -107,4 +108,13 @@ public class ReservationDAO {
         return ret;
     }//Fin Modifier---------------------------------------------------------------------------------
 
+    //SUPPRIMER-------------------------------------------------------------------------------------
+    public long supprimerReservation(Reservation uneReservation){
+        long ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        String condition = "id ='"+uneReservation.getId()+"'";
+        Log.d("Reservation supprime", condition);
+        ret = bd.delete("Reservation", condition ,null);
+        return ret;
+    }//Fin SUPPRIMER--------------------------------------------------------------------------------
 }

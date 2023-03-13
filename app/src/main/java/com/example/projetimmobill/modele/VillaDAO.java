@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -111,5 +112,14 @@ public class VillaDAO {
         return ret;
     }//Fin Modifier---------------------------------------------------------------------------------
 
+    //SUPPRIMER-------------------------------------------------------------------------------------
+    public long supprimerVilla(Villa uneVilla){
+        long ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        String condition = "nom ='"+uneVilla.getNom()+"' AND adresse='"+uneVilla.getAdresse()+"'";
+        Log.d("Villa supprime", condition);
+        ret = bd.delete("Villa", condition ,null);
+        return ret;
+    }//Fin SUPPRIMER--------------------------------------------------------------------------------
 
 }

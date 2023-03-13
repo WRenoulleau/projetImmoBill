@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -104,4 +105,13 @@ public class LocataireDAO {
         return ret;
     }//Fin Modifier---------------------------------------------------------------------------------
 
+    //SUPPRIMER-------------------------------------------------------------------------------------
+    public long supprimerLocataire(Locataire unLocataire){
+        long ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        String condition = "nom ='"+unLocataire.getNom()+"' AND prenom='"+unLocataire.getPrenom()+"'";
+        Log.d("Locataire supprime", condition);
+        ret = bd.delete("Locataire", condition ,null);
+        return ret;
+    }//Fin SUPPRIMER--------------------------------------------------------------------------------
 }
