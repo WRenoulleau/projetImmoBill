@@ -45,6 +45,8 @@ public class UserInfosReservationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), UserInfosLocataireActivity.class);
+                intent.putExtra("montant", montant);
+                intent.putExtra("id", id);
                 startActivity(intent);
             }
         });
@@ -60,6 +62,7 @@ public class UserInfosReservationActivity extends AppCompatActivity {
         textPieces = (TextView) findViewById(R.id.textDescPieces);
         textMontant = (TextView) findViewById(R.id.textMontant);
 
+        id=getIntent().getIntExtra("id",0);
         nom=getIntent().getStringExtra("nom");
         adresse=getIntent().getStringExtra("adresse");
         surface=getIntent().getFloatExtra("surface", 0);

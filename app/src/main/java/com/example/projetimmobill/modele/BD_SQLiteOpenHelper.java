@@ -43,7 +43,7 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
             "nbEnfants INTEGER NOT NULL ,\n"+
             "dateResa TEXT NOT NULL ,\n"+
             "montant TEXT NOT NULL ,\n"+
-            "optionMenage INTEGER NOT NULL ,\n"+
+            "optionMenage TEXT NOT NULL ,\n"+
             "id_Locataire INTEGER NOT NULL ,\n"+
             "id_Villa INTEGER NOT NULL,\n"+
 

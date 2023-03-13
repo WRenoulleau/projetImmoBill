@@ -11,11 +11,11 @@ public class Reservation {
     private int nbEnfants;
     private String dateResa;
     private String montant;
-    private int optionMenage;
+    private String optionMenage;
     private int idVilla;
     private int idLocataire;
 
-    public Reservation(int id, String dateArrivee, String dateDepart, int nbAdultes, int nbEnfants, String dateResa, String montant, int optionMenage,int idVilla,int idLocataire){
+    public Reservation(int id, String dateArrivee, String dateDepart, int nbAdultes, int nbEnfants, String dateResa, String montant, String optionMenage,int idVilla,int idLocataire){
         this.id=id;
         this.dateArrivee=dateArrivee;
         this.dateDepart=dateDepart;
@@ -100,11 +100,11 @@ public class Reservation {
         this.montant= montant;
     }
 
-    public int getOptionMenage() {
+    public String getOptionMenage() {
         return optionMenage;
     }
 
-    public void setOptionMenage(int optionMenage) {
+    public void setOptionMenage(String optionMenage) {
         this.optionMenage = optionMenage;
     }
 
