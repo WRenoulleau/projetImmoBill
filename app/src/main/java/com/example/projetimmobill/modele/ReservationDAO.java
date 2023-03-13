@@ -23,7 +23,7 @@ public class ReservationDAO {
         curseur = accesBD.getReadableDatabase().rawQuery("select * from Reservation where id=" + id + ";", null);
         if (curseur.getCount() > 0) {
             curseur.moveToFirst();
-            laReservation = new Reservation(id,curseur.getString(1), curseur.getString(2), curseur.getInt(3), curseur.getInt(4), curseur.getString(5), curseur.getString(6), curseur.getInt(7));
+            laReservation = new Reservation(id,curseur.getString(1), curseur.getString(2), curseur.getInt(3), curseur.getInt(4), curseur.getString(5), curseur.getString(6), curseur.getInt(7),curseur.getInt(8),curseur.getInt(9));
         }
         return laReservation;
     }
@@ -45,6 +45,8 @@ public class ReservationDAO {
         String dateResa;
         String montant;
         int optionMenage;
+        int idLocataire;
+        int idVilla;
 
         curseur.moveToFirst();
         while (!curseur.isAfterLast()) {
@@ -56,8 +58,10 @@ public class ReservationDAO {
             dateResa = curseur.getString(5);
             montant = curseur.getString(6);
             optionMenage = curseur.getInt(7);
+            idLocataire = curseur.getInt(8);
+            idVilla = curseur.getInt(9);
 
-            listeReservation.add(new Reservation(id, dateArrivee, dateDepart, nbAdultes, nbEnfants, dateResa, montant, optionMenage));
+            listeReservation.add(new Reservation(id, dateArrivee, dateDepart, nbAdultes, nbEnfants, dateResa, montant, optionMenage,idLocataire,idVilla));
             curseur.moveToNext();
         }
         return listeReservation;
@@ -77,6 +81,8 @@ public class ReservationDAO {
         value.put("dateResa", uneReservation.getDateResa());
         value.put("montant", uneReservation.getMontant());
         value.put("optionMenage", uneReservation.getOptionMenage());
+        value.put("id_Locataire", uneReservation.getOptionMenage());
+        value.put("id_Villa", uneReservation.getOptionMenage());
         ret = bd.insert("Reservation", null, value);
 
         return ret;
