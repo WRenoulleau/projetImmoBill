@@ -31,7 +31,7 @@ public class ChoixAdminActivity extends AppCompatActivity {
         consultLocataire.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AdminDetailsLocataireActivity.class);
+                Intent intent = new Intent(v.getContext(), AdminConsultLocatairesActivity.class);
                 startActivity(intent);
             }
         });
