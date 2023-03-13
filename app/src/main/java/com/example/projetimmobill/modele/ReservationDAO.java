@@ -86,5 +86,5 @@ public class ReservationDAO {
         ret = bd.insert("Reservation", null, value);
 
         return ret;
-    }
+    }//Fin Ajouter
 }
