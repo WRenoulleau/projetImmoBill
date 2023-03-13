@@ -81,4 +81,30 @@ public class ReservationDAO {
 
         return ret;
     }//Fin Ajouter
+
+    //Modifier--------------------------------------------------------------------------------------
+    public int modifierReservation(Reservation nvReservation, Reservation ancReservation){
+        int ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        ContentValues value = new ContentValues();
+
+        value.put("id",nvReservation.getId());
+        value.put("dateArrivee", nvReservation.getDateArrivee());
+        value.put("dateDepart",nvReservation.getDateDepart());
+        value.put("nbAdultes",nvReservation.getNbAdultes());
+        value.put("nbEnfants",nvReservation.getNbEnfants());
+        value.put("dateResa", nvReservation.getDateResa());
+        value.put("montant",nvReservation.getMontant());
+        value.put("optionMenage", nvReservation.getOptionMenage());
+
+
+        String condition = "dateArrivee ='"+ancReservation.getDateArrivee()+"' AND dateDepart='"+ancReservation.getDateDepart()+"'AND nbAdultes='"+ancReservation.getNbAdultes()+"'AND nbEnfants='"+ancReservation.getNbEnfants()+
+                "'AND dateResa='"+ancReservation.getDateResa()+"'AND optionMenage='"+ancReservation.getOptionMenage()+"'AND montant='"+ancReservation.getMontant()+"'";
+        String condition2 = "dateArrivee ='"+nvReservation.getDateArrivee()+"' AND dateDepart='"+nvReservation.getDateDepart()+"'AND nbAdultes='"+nvReservation.getNbAdultes()+"'ANDnbEnfants='"+nvReservation.getNbEnfants()+
+                "'AND dateResa='"+nvReservation.getDateResa()+"'AND optionMenage='"+nvReservation.getOptionMenage()+"'AND montant='"+nvReservation.getMontant()+"'";
+
+        ret = bd.update("villa", value, condition ,null);
+        return ret;
+    }//Fin Modifier---------------------------------------------------------------------------------
+
 }

@@ -16,7 +16,7 @@ public class TypeVillaDAO {
         accesBD = new BD_SQLiteOpenHelper(ct, base, null, version);
     }
 
-    // CONSULTER
+    // CONSULTER------------------------------------------------------------------------------------
 
     public TypeVilla getTypeVilla(int id) {
         TypeVilla leTypeVilla = null;
@@ -52,8 +52,9 @@ public class TypeVillaDAO {
             curseur.moveToNext();
         }
         return listeTypeVilla;
-    }
-    // AJOUTER
+    }//Fin onsult-----------------------------------------------------------------------------------
+
+    // AJOUTER--------------------------------------------------------------------------------------
     public long addTypeVilla(TypeVilla unTypeVilla) {
         long ret;
         SQLiteDatabase bd = accesBD.getWritableDatabase();
@@ -63,8 +64,28 @@ public class TypeVillaDAO {
         value.put("nom", unTypeVilla.getNom());
         value.put("nbCouchages", unTypeVilla.getNbCouchages());
 
-        ret = bd.insert("Villa", null, value);
+        ret = bd.insert("TypeVilla", null, value);
 
         return ret;
-    } //FIN AJOUTER
+    } //FIN AJOUTER---------------------------------------------------------------------------------
+
+
+    //Modifier--------------------------------------------------------------------------------------
+    public int modifierTypeVilla(TypeVilla nvTypeVilla, TypeVilla ancTypeVilla){
+        int ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        ContentValues value = new ContentValues();
+
+        value.put("id",nvTypeVilla.getId());
+        value.put("nom", nvTypeVilla.getNom());
+        value.put("nbCouchages",nvTypeVilla.getNbCouchages());
+
+
+        String condition = "nom ='"+ancTypeVilla.getNom()+"' AND adresse='"+ancTypeVilla.getNbCouchages()+"'";
+        String condition2 = "nom ='"+nvTypeVilla.getNom()+"' AND adresse='"+nvTypeVilla.getNbCouchages()+"'";
+
+        ret = bd.update("TypeVilla", value, condition ,null);
+        return ret;
+    }//Fin Modifier---------------------------------------------------------------------------------
+
 }
