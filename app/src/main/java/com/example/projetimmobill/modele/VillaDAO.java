@@ -24,7 +24,7 @@ public class VillaDAO {
         curseur = accesBD.getReadableDatabase().rawQuery("select * from Villa where id=" + id + ";", null);
         if (curseur.getCount() > 0) {
             curseur.moveToFirst();
-            laVilla = new Villa(id, curseur.getString(1), curseur.getString(2), curseur.getString(3), curseur.getString(4), curseur.getInt(5), curseur.getString(6), curseur.getString(7), curseur.getString(8));
+            laVilla = new Villa(id, curseur.getString(1), curseur.getString(2), curseur.getString(3), curseur.getString(4), curseur.getInt(5), curseur.getString(6), curseur.getString(7), curseur.getString(8), curseur.getInt(8));
         }
         return laVilla;
     }
@@ -47,6 +47,7 @@ public class VillaDAO {
         String anneeConstruction;
         String caution;
         String montant;
+        int type;
 
         curseur.moveToFirst();
         while (!curseur.isAfterLast()) {
@@ -58,8 +59,9 @@ public class VillaDAO {
             surface = curseur.getFloat(5);
             anneeConstruction = curseur.getString(6);
             caution = curseur.getString(7);
-            montant = curseur.getString(7);
-            listeVilla.add(new Villa(id, nom, adresse, description, pieces, surface, anneeConstruction, caution, montant));
+            montant = curseur.getString(8);
+            type = curseur.getInt(9);
+            listeVilla.add(new Villa(id, nom, adresse, description, pieces, surface, anneeConstruction, caution, montant, type));
             curseur.moveToNext();
         }
         return listeVilla;
@@ -81,6 +83,7 @@ public class VillaDAO {
         value.put("anneeConstruction", uneVilla.getAnneeConstruction());
         value.put("caution", uneVilla.getCaution());
         value.put("montant", uneVilla.getMontant());
+        value.put("id_TypeVilla", uneVilla.getType());
         ret = bd.insert("Villa", null, value);
 
         return ret;
