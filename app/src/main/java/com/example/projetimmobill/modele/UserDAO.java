@@ -22,7 +22,7 @@ public class UserDAO {
         curseur = accesBD.getReadableDatabase().rawQuery("select * from User where id=" + id + ";", null);
         if (curseur.getCount() > 0) {
             curseur.moveToFirst();
-            leUser = new User(id,curseur.getString(1), curseur.getString(2));
+            leUser = new User(id,curseur.getString(1), curseur.getString(2), curseur.getInt(3));
         }
         return leUser;
     }
@@ -39,6 +39,7 @@ public class UserDAO {
         int id;
         String login;
         String password;
+        int type;
 
 
         curseur.moveToFirst();
@@ -46,7 +47,8 @@ public class UserDAO {
             id = curseur.getInt(0);
             login = curseur.getString(1);
             password = curseur.getString(2);
-            listeUser.add(new User(id, login, password));
+            type = curseur.getInt(2);
+            listeUser.add(new User(id, login, password, type));
             curseur.moveToNext();
         }
         return listeUser;
