@@ -17,7 +17,7 @@ public class VillaDAO {
         accesBD = new BD_SQLiteOpenHelper(ct, base, null, version);
     }
 
-    // CONSULTER
+    // CONSULTER------------------------------------------------------------------------------------
     public Villa getVilla(int id) {
         Villa laVilla = null;
         Cursor curseur;
@@ -64,9 +64,9 @@ public class VillaDAO {
         }
         return listeVilla;
     }
-    //FIN CONSULER
+    //FIN CONSULER----------------------------------------------------------------------------------
 
-    // AJOUTER
+    // AJOUTER--------------------------------------------------------------------------------------
     public long addVilla(Villa uneVilla) {
         long ret;
         SQLiteDatabase bd = accesBD.getWritableDatabase();
@@ -84,5 +84,32 @@ public class VillaDAO {
         ret = bd.insert("Villa", null, value);
 
         return ret;
-    } //FIN AJOUTER
+    } //FIN AJOUTER---------------------------------------------------------------------------------
+
+    //Modifier--------------------------------------------------------------------------------------
+        public int modifierVilla(Villa nvVilla, Villa ancVilla){
+        int ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        ContentValues value = new ContentValues();
+
+        value.put("id",nvVilla.getId());
+        value.put("nom", nvVilla.getNom());
+        value.put("adresse",nvVilla.getAdresse());
+        value.put("Description",nvVilla.getDescription());
+        value.put("Pieces",nvVilla.getPieces());
+        value.put("surface", nvVilla.getSurface());
+        value.put("anneeConstruction",nvVilla.getAnneeConstruction());
+        value.put("caution", nvVilla.getCaution());
+        value.put("montant",nvVilla.getMontant());
+
+        String condition = "nom ='"+ancVilla.getNom()+"' AND adresse='"+ancVilla.getAdresse()+"'AND description='"+ancVilla.getDescription()+"'AND pieces='"+ancVilla.getPieces()+
+                "'AND surface='"+ancVilla.getSurface()+"'AND anneeConstruction='"+ancVilla.getAnneeConstruction()+"'AND Caution='"+ancVilla.getCaution()+"'AND montant='"+ancVilla.getMontant()+"'";
+            String condition2 = "nom ='"+nvVilla.getNom()+"' AND adresse='"+nvVilla.getAdresse()+"'AND description='"+nvVilla.getDescription()+"'AND pieces='"+nvVilla.getPieces()+
+                    "'AND surface='"+nvVilla.getSurface()+"'AND anneeConstruction='"+nvVilla.getAnneeConstruction()+"'AND Caution='"+nvVilla.getCaution()+"'AND montant='"+nvVilla.getMontant()+"'";
+
+        ret = bd.update("villa", value, condition ,null);
+        return ret;
+    }//Fin Modifier---------------------------------------------------------------------------------
+
+
 }
