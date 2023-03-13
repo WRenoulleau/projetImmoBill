@@ -35,7 +35,7 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
             "CONSTRAINT Villa_TypeVilla_FK FOREIGN KEY (id_TypeVilla) REFERENCES TypeVilla(id))";
 
 
-    private String reservation= "CREATE TABLE IF NOT EXISTS Reservation(\n" +
+    private String reservation= "CREATE TABLE IF NOT EXISTS reservation(\n" +
             "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,\n" +
             "dateArrivee TEXT NOT NULL ,\n"+
             "dateDepart TEXT NOT NULL ,\n"+
