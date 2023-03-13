@@ -11,7 +11,7 @@ import com.example.projetimmobill.R;
 
 public class ChoixAdminActivity extends AppCompatActivity {
 
-    private Button consultResa, consultLocataire, consultLocation, consultTypeVilla, consultUser, newUser, newTypeVilla, newLocation, newLocataire;
+    private Button consultResa, consultLocataire, consultLocation, consultTypeVilla, consultUser, newLocataire, newLocation, newTypeVilla, newUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,8 @@ public class ChoixAdminActivity extends AppCompatActivity {
             }
         });
 
+
+
         consultUser=findViewById(R.id.btnConsultUser);
         consultUser.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -63,7 +65,7 @@ public class ChoixAdminActivity extends AppCompatActivity {
             }
         });
 
-        newLocataire=findViewById(R.id.btnAjouterLocataire);
+        /*newLocataire=(Button)findViewById(R.id.btnAjouterLocataire);
         newLocataire.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -72,7 +74,7 @@ public class ChoixAdminActivity extends AppCompatActivity {
             }
         });
 
-        newLocation=findViewById(R.id.btnAjouterLocation);
+        /*newLocation=findViewById(R.id.btnAjouterLocation);
         newLocation.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -97,6 +99,6 @@ public class ChoixAdminActivity extends AppCompatActivity {
                 Intent intent = new Intent(v.getContext(), AdminNewUserActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 }
