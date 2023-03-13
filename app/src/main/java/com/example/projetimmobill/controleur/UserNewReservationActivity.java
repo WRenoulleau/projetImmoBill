@@ -39,7 +39,7 @@ public class UserNewReservationActivity extends AppCompatActivity {
 
         VillaDAO resaAcces = new VillaDAO(this);
 
-        //------------> lesVillas = resaAcces.getVillas();
+        lesVillas = resaAcces.getVillas();
 
         ArrayAdapter monAdapter = new ArrayAdapter(UserNewReservationActivity.this,android.R.layout.simple_list_item_1,lesVillas);
 
@@ -48,7 +48,19 @@ public class UserNewReservationActivity extends AppCompatActivity {
         listReservation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Villa selectedItem= (Villa) listReservation.getAdapter().getItem(position);
                 Intent i = new Intent(UserNewReservationActivity.this,UserInfosReservationActivity.class);
+                i.putExtra("pos", position);
+                i.putExtra("id",selectedItem.getId());
+                i.putExtra("nom",selectedItem.getNom());
+                i.putExtra("adresse",selectedItem.getAdresse());
+                i.putExtra("surface",selectedItem.getSurface());
+                i.putExtra("typeVilla",selectedItem.getType());
+                i.putExtra("annee",selectedItem.getAnneeConstruction());
+                i.putExtra("caution",selectedItem.getCaution());
+                i.putExtra("desc",selectedItem.getDescription());
+                i.putExtra("descPieces",selectedItem.getPieces());
+                i.putExtra("montant",selectedItem.getMontant());
                 startActivity(i);
             }
         });
