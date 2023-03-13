@@ -74,7 +74,7 @@ public class ReservationDAO {
         SQLiteDatabase bd = accesBD.getWritableDatabase();
 
         ContentValues value = new ContentValues();
-        value.put("id", uneReservation.getId());
+        //value.put("id", uneReservation.getId());
         value.put("dateArrivee", uneReservation.getDateArrivee());
         value.put("dateDepard", uneReservation.getDateDepart());
         value.put("nbAdultes", uneReservation.getNbAdultes());
@@ -84,7 +84,7 @@ public class ReservationDAO {
         value.put("optionMenage", uneReservation.getOptionMenage());
         value.put("id_Locataire", uneReservation.getOptionMenage());
         value.put("id_Villa", uneReservation.getOptionMenage());
-        ret = bd.insert("Reservation", null, value);
+        ret = bd.insert("reservation", null, value);
 
         return ret;
     }//Fin Ajouter
