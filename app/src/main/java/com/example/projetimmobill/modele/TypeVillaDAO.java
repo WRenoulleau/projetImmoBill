@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -87,5 +88,15 @@ public class TypeVillaDAO {
         ret = bd.update("TypeVilla", value, condition ,null);
         return ret;
     }//Fin Modifier---------------------------------------------------------------------------------
+
+    //SUPPRIMER-------------------------------------------------------------------------------------
+    public long supprimerTypeVilla(TypeVilla unTypeVilla){
+        long ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        String condition = "nom ='"+unTypeVilla.getNom()+"'";
+        Log.d("TypeVilla supprime", condition);
+        ret = bd.delete("TypeVilla", condition ,null);
+        return ret;
+    }//Fin SUPPRIMER--------------------------------------------------------------------------------
 
 }
