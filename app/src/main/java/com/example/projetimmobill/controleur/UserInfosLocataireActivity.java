@@ -11,12 +11,15 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.projetimmobill.R;
+import com.example.projetimmobill.modele.Reservation;
 
 public class UserInfosLocataireActivity extends AppCompatActivity {
     private Button btnRetour,btnValider;
     private EditText editAdulte, editEnfant, editArrivee, editDepart;
-    RadioButton oMenage, nMenage;
+    RadioButton radioChoix;
     RadioGroup optMenage;
+    private String montant, menageStr;
+    private int idVilla;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,15 +34,30 @@ public class UserInfosLocataireActivity extends AppCompatActivity {
             }
         });
 
+        montant=getIntent().getStringExtra("montant");
+        idVilla=getIntent().getIntExtra("id",0);
+
+
         editAdulte=findViewById(R.id.editNbAdultes);
         editEnfant=findViewById(R.id.editNbEnfants);
         editArrivee=findViewById(R.id.editDateArrivee);
         editDepart=findViewById(R.id.editDateDepart);
 
-        oMenage=findViewById(R.id.radioOui);
-        nMenage=findViewById(R.id.radioNon);
+        radioChoix=findViewById(optMenage.getCheckedRadioButtonId());
+        menageStr = radioChoix.getText().toString();
+
         optMenage=findViewById(R.id.radioGroup);
 
+        /*Reservation Entite = new Reservation(null, editArrivee.getText(),
+                editDepart.getText(),
+                String.valueOf(editAdulte.getText()),
+                String.valueOf(editEnfant.getText()),
+                dateresa,
+                montant,
+                menageStr,
+                idVilla,
+                idLocataire);
+*/
         btnValider=findViewById(R.id.btnValider);
         btnValider.setOnClickListener(new View.OnClickListener(){
             @Override
