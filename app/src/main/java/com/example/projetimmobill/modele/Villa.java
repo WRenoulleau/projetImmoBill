@@ -13,9 +13,10 @@ public class Villa {
     private String anneeConstruction;
     private String caution;
     private String montant;
+    private int type;
 
 
-    public Villa(int id, String nom, String adresse,String description, String pieces, float surface, String anneeConstruction, String caution, String montant){
+    public Villa(int id, String nom, String adresse,String description, String pieces, float surface, String anneeConstruction, String caution, String montant, int type){
     this.id=id;
     this.nom=nom;
     this.adresse=adresse;
@@ -25,7 +26,16 @@ public class Villa {
     this.anneeConstruction=anneeConstruction;
     this.caution=caution;
     this.montant=montant;
+    this.type=type;
 
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public int getId() {

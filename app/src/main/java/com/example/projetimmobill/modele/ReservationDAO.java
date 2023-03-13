@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -87,4 +88,39 @@ public class ReservationDAO {
 
         return ret;
     }//Fin Ajouter
+
+    //Modifier--------------------------------------------------------------------------------------
+    public int modifierReservation(Reservation nvReservation, Reservation ancReservation){
+        int ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        ContentValues value = new ContentValues();
+
+        value.put("id",nvReservation.getId());
+        value.put("dateArrivee", nvReservation.getDateArrivee());
+        value.put("dateDepart",nvReservation.getDateDepart());
+        value.put("nbAdultes",nvReservation.getNbAdultes());
+        value.put("nbEnfants",nvReservation.getNbEnfants());
+        value.put("dateResa", nvReservation.getDateResa());
+        value.put("montant",nvReservation.getMontant());
+        value.put("optionMenage", nvReservation.getOptionMenage());
+
+
+        String condition = "dateArrivee ='"+ancReservation.getDateArrivee()+"' AND dateDepart='"+ancReservation.getDateDepart()+"'AND nbAdultes='"+ancReservation.getNbAdultes()+"'AND nbEnfants='"+ancReservation.getNbEnfants()+
+                "'AND dateResa='"+ancReservation.getDateResa()+"'AND optionMenage='"+ancReservation.getOptionMenage()+"'AND montant='"+ancReservation.getMontant()+"'";
+        String condition2 = "dateArrivee ='"+nvReservation.getDateArrivee()+"' AND dateDepart='"+nvReservation.getDateDepart()+"'AND nbAdultes='"+nvReservation.getNbAdultes()+"'ANDnbEnfants='"+nvReservation.getNbEnfants()+
+                "'AND dateResa='"+nvReservation.getDateResa()+"'AND optionMenage='"+nvReservation.getOptionMenage()+"'AND montant='"+nvReservation.getMontant()+"'";
+
+        ret = bd.update("villa", value, condition ,null);
+        return ret;
+    }//Fin Modifier---------------------------------------------------------------------------------
+
+    //SUPPRIMER-------------------------------------------------------------------------------------
+    public long supprimerReservation(Reservation uneReservation){
+        long ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        String condition = "id ='"+uneReservation.getId()+"'";
+        Log.d("Reservation supprime", condition);
+        ret = bd.delete("Reservation", condition ,null);
+        return ret;
+    }//Fin SUPPRIMER--------------------------------------------------------------------------------
 }

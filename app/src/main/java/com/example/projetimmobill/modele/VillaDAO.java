@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -17,14 +18,14 @@ public class VillaDAO {
         accesBD = new BD_SQLiteOpenHelper(ct, base, null, version);
     }
 
-    // CONSULTER
+    // CONSULTER------------------------------------------------------------------------------------
     public Villa getVilla(int id) {
         Villa laVilla = null;
         Cursor curseur;
         curseur = accesBD.getReadableDatabase().rawQuery("select * from Villa where id=" + id + ";", null);
         if (curseur.getCount() > 0) {
             curseur.moveToFirst();
-            laVilla = new Villa(id, curseur.getString(1), curseur.getString(2), curseur.getString(3), curseur.getString(4), curseur.getInt(5), curseur.getString(6), curseur.getString(7), curseur.getString(8));
+            laVilla = new Villa(id, curseur.getString(1), curseur.getString(2), curseur.getString(3), curseur.getString(4), curseur.getInt(5), curseur.getString(6), curseur.getString(7), curseur.getString(8), curseur.getInt(8));
         }
         return laVilla;
     }
@@ -47,6 +48,7 @@ public class VillaDAO {
         String anneeConstruction;
         String caution;
         String montant;
+        int type;
 
         curseur.moveToFirst();
         while (!curseur.isAfterLast()) {
@@ -58,15 +60,16 @@ public class VillaDAO {
             surface = curseur.getFloat(5);
             anneeConstruction = curseur.getString(6);
             caution = curseur.getString(7);
-            montant = curseur.getString(7);
-            listeVilla.add(new Villa(id, nom, adresse, description, pieces, surface, anneeConstruction, caution, montant));
+            montant = curseur.getString(8);
+            type = curseur.getInt(9);
+            listeVilla.add(new Villa(id, nom, adresse, description, pieces, surface, anneeConstruction, caution, montant, type));
             curseur.moveToNext();
         }
         return listeVilla;
     }
-    //FIN CONSULER
+    //FIN CONSULER----------------------------------------------------------------------------------
 
-    // AJOUTER
+    // AJOUTER--------------------------------------------------------------------------------------
     public long addVilla(Villa uneVilla) {
         long ret;
         SQLiteDatabase bd = accesBD.getWritableDatabase();
@@ -81,9 +84,46 @@ public class VillaDAO {
         value.put("anneeConstruction", uneVilla.getAnneeConstruction());
         value.put("caution", uneVilla.getCaution());
         value.put("montant", uneVilla.getMontant());
+        value.put("id_TypeVilla", uneVilla.getType());
         ret = bd.insert("Villa", null, value);
 
         return ret;
-    } //FIN AJOUTER
+    } //FIN AJOUTER---------------------------------------------------------------------------------
+
+    //Modifier--------------------------------------------------------------------------------------
+        public int modifierVilla(Villa nvVilla, Villa ancVilla){
+        int ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        ContentValues value = new ContentValues();
+
+        value.put("id",nvVilla.getId());
+        value.put("nom", nvVilla.getNom());
+        value.put("adresse",nvVilla.getAdresse());
+        value.put("Description",nvVilla.getDescription());
+        value.put("Pieces",nvVilla.getPieces());
+        value.put("surface", nvVilla.getSurface());
+        value.put("anneeConstruction",nvVilla.getAnneeConstruction());
+        value.put("caution", nvVilla.getCaution());
+        value.put("montant",nvVilla.getMontant());
+
+        String condition = "nom ='"+ancVilla.getNom()+"' AND adresse='"+ancVilla.getAdresse()+"'AND description='"+ancVilla.getDescription()+"'AND pieces='"+ancVilla.getPieces()+
+                "'AND surface='"+ancVilla.getSurface()+"'AND anneeConstruction='"+ancVilla.getAnneeConstruction()+"'AND Caution='"+ancVilla.getCaution()+"'AND montant='"+ancVilla.getMontant()+"'";
+            String condition2 = "nom ='"+nvVilla.getNom()+"' AND adresse='"+nvVilla.getAdresse()+"'AND description='"+nvVilla.getDescription()+"'AND pieces='"+nvVilla.getPieces()+
+                    "'AND surface='"+nvVilla.getSurface()+"'AND anneeConstruction='"+nvVilla.getAnneeConstruction()+"'AND Caution='"+nvVilla.getCaution()+"'AND montant='"+nvVilla.getMontant()+"'";
+
+        ret = bd.update("villa", value, condition ,null);
+        return ret;
+    }//Fin Modifier---------------------------------------------------------------------------------
+
+    //SUPPRIMER-------------------------------------------------------------------------------------
+    public long supprimerVilla(Villa uneVilla){
+        long ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        String condition = "nom ='"+uneVilla.getNom()+"' AND adresse='"+uneVilla.getAdresse()+"'";
+        Log.d("Villa supprime", condition);
+        ret = bd.delete("Villa", condition ,null);
+        return ret;
+    }//Fin SUPPRIMER--------------------------------------------------------------------------------
+
 }
 

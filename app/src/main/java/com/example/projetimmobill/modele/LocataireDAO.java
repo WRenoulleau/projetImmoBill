@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -79,4 +80,38 @@ public class LocataireDAO {
 
         return ret;
     } //FIN AJOUTER
+
+    //Modifier--------------------------------------------------------------------------------------
+    public int modifierLocataire(Locataire nvLocataire, Locataire ancLocataire){
+        int ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        ContentValues value = new ContentValues();
+
+        value.put("id",nvLocataire.getId());
+        value.put("nom", nvLocataire.getNom());
+        value.put("prenom", nvLocataire.getPrenom());
+        value.put("adresse",nvLocataire.getAdresse());
+        value.put("tel",nvLocataire.getTel());
+        value.put("email",nvLocataire.getEmail());
+        value.put("commentaire", nvLocataire.getCommentaire());
+
+
+        String condition = "nom ='"+ancLocataire.getNom()+"' AND adresse='"+ancLocataire.getAdresse()+"'AND prenom='"+ancLocataire.getPrenom()+"'AND tel='"+ancLocataire.getTel()+
+                "'AND email='"+ancLocataire.getEmail()+"'AND commentaire='"+ancLocataire.getCommentaire()+"'";
+        String condition2 = "nom ='"+nvLocataire.getNom()+"' AND adresse='"+nvLocataire.getAdresse()+"'AND prenom='"+nvLocataire.getPrenom()+"'AND tel='"+nvLocataire.getTel()+
+                "'AND email='"+nvLocataire.getEmail()+"'AND commentaire='"+nvLocataire.getCommentaire()+"'";
+
+        ret = bd.update("villa", value, condition ,null);
+        return ret;
+    }//Fin Modifier---------------------------------------------------------------------------------
+
+    //SUPPRIMER-------------------------------------------------------------------------------------
+    public long supprimerLocataire(Locataire unLocataire){
+        long ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        String condition = "nom ='"+unLocataire.getNom()+"' AND prenom='"+unLocataire.getPrenom()+"'";
+        Log.d("Locataire supprime", condition);
+        ret = bd.delete("Locataire", condition ,null);
+        return ret;
+    }//Fin SUPPRIMER--------------------------------------------------------------------------------
 }
