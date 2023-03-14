@@ -51,6 +51,7 @@ public class AdminConsultLocationActivity extends AppCompatActivity {
                 Villa selectedItem= (Villa) listLoc.getAdapter().getItem(position);
                 Intent i = new Intent(AdminConsultLocationActivity.this,AdminDetailsLocationActivity.class);
                 i.putExtra("pos", position);
+                i.putExtra("id",selectedItem.getId());
                 i.putExtra("nom",selectedItem.getNom());
                 i.putExtra("adresse",selectedItem.getAdresse());
                 i.putExtra("surface",selectedItem.getSurface());
