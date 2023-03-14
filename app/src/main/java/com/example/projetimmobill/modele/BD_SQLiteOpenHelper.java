@@ -88,10 +88,13 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(villa);
+        db.execSQL(reservation);
         db.execSQL(typeVilla);
         db.execSQL(user);
         db.execSQL(typeUser);
         db.execSQL(locataire);
+        db.execSQL("INSERT INTO reservation(nbAdultes,id_Villa,dateDepart,dateArrivee,id_Locataire,montant,optionMenage,dateResa,nbEnfants) VALUES\n" +
+                "('2', '8', '20/03/2023', '17/03/2023', '1', '15000', 'Oui','14/03/2023', '3');");
         db.execSQL("INSERT INTO villa (nom, adresse, description, pieces, surface, anneeConstruction, caution,montant, id_TypeVilla) VALUES\n" +
                 "('La Alain Philippe', '84 rue du tourmalet', 'villa au sommet', '1', '20', '2000', '400','50', '1'),\n" +
                 "('La Margarita', '6 rue de l Italie', 'villa garnie', '2', '40', '2001', '120','100', '2'),\n" +
