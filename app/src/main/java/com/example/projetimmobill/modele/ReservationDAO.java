@@ -76,18 +76,37 @@ public class ReservationDAO {
         ContentValues value = new ContentValues();
         //value.put("id", uneReservation.getId());
         value.put("dateArrivee", uneReservation.getDateArrivee());
-        value.put("dateDepard", uneReservation.getDateDepart());
+        value.put("dateDepart", uneReservation.getDateDepart());
         value.put("nbAdultes", uneReservation.getNbAdultes());
         value.put("nbEnfants", uneReservation.getNbEnfants());
         value.put("dateResa", uneReservation.getDateResa());
         value.put("montant", uneReservation.getMontant());
         value.put("optionMenage", uneReservation.getOptionMenage());
-        value.put("id_Locataire", uneReservation.getOptionMenage());
-        value.put("id_Villa", uneReservation.getOptionMenage());
+        value.put("id_Locataire", uneReservation.getIdLocataire());
+        value.put("id_Villa", uneReservation.getIdVilla());
         ret = bd.insert("reservation", null, value);
 
         return ret;
     }//Fin Ajouter
+
+    public void addReservationSQL(Reservation uneReservation){
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+
+        String req = "INSERT INTO reservation(nbAdultes,id_Villa,dateDepart,dateArrivee,id_Locataire,montant,optionMenage,dateResa,nbEnfants) VALUES\n" +
+                "("+uneReservation.getDateArrivee()+","+
+                uneReservation.getDateDepart()+","+
+                uneReservation.getNbAdultes()+","+
+                uneReservation.getNbEnfants()+","+
+                uneReservation.getDateResa()+","+
+                uneReservation.getMontant()+","+
+                uneReservation.getOptionMenage()+","+
+                uneReservation.getIdLocataire()+","+
+                uneReservation.getIdVilla()+");";
+
+        Log.d("log",req);
+        bd.execSQL(req);
+        bd.close();
+    }
 
     //Modifier--------------------------------------------------------------------------------------
     public int modifierReservation(Reservation nvReservation, Reservation ancReservation){
