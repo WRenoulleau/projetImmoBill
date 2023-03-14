@@ -96,6 +96,7 @@ public class VillaDAO {
         SQLiteDatabase bd = accesBD.getWritableDatabase();
         ContentValues value = new ContentValues();
 
+        Integer ancId=ancVilla.getId();
         value.put("id",nvVilla.getId());
         value.put("nom", nvVilla.getNom());
         value.put("adresse",nvVilla.getAdresse());
@@ -106,10 +107,8 @@ public class VillaDAO {
         value.put("caution", nvVilla.getCaution());
         value.put("montant",nvVilla.getMontant());
 
-        String condition = "nom ='"+ancVilla.getNom()+"' AND adresse='"+ancVilla.getAdresse()+"'AND description='"+ancVilla.getDescription()+"'AND pieces='"+ancVilla.getPieces()+
-                "'AND surface='"+ancVilla.getSurface()+"'AND anneeConstruction='"+ancVilla.getAnneeConstruction()+"'AND Caution='"+ancVilla.getCaution()+"'AND montant='"+ancVilla.getMontant()+"'";
-            String condition2 = "nom ='"+nvVilla.getNom()+"' AND adresse='"+nvVilla.getAdresse()+"'AND description='"+nvVilla.getDescription()+"'AND pieces='"+nvVilla.getPieces()+
-                    "'AND surface='"+nvVilla.getSurface()+"'AND anneeConstruction='"+nvVilla.getAnneeConstruction()+"'AND Caution='"+nvVilla.getCaution()+"'AND montant='"+nvVilla.getMontant()+"'";
+        String condition = "id='"+nvVilla.getId()+"'";
+
 
         ret = bd.update("villa", value, condition ,null);
         return ret;
