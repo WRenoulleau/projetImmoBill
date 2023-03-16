@@ -95,6 +95,7 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL(locataire);
         db.execSQL("INSERT INTO reservation(nbAdultes,id_Villa,dateDepart,dateArrivee,id_Locataire,montant,optionMenage,dateResa,nbEnfants) VALUES\n" +
                 "('2', '8', '20/03/2023', '17/03/2023', '1', '15000', 'Oui','14/03/2023', '3');");
+
         db.execSQL("INSERT INTO villa (nom, adresse, description, pieces, surface, anneeConstruction, caution,montant, id_TypeVilla) VALUES\n" +
                 "('La Alain Philippe', '84 rue du tourmalet', 'villa au sommet', '1', '20', '2000', '400','50', '1'),\n" +
                 "('La Margarita', '6 rue de l Italie', 'villa garnie', '2', '40', '2001', '120','100', '2'),\n" +
@@ -124,7 +125,9 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
                 "('nouveau', 'nouveau',2);");
 
         db.execSQL("INSERT INTO locataire (nom,prenom,adresse,tel,email,commentaire) VALUES\n" +
-                "('Marlats', 'Iban', '1 au sommet du monde','0789456321','ff','le pire locataire');");
+                "('Marlats', 'Iban', '1 au sommet du monde','0789456321','ff','le pire locataire'),\n" +
+                "('Renoulleau', 'Willem', '2 au sommet du monde','0622285589','ff','le plus beau locataire'),\n" +
+                "('Noirot', 'Clarence', '3 au sommet du monde','0484256364','ff','la meilleure locataire');");
 
 
         Log.d("log","base de test cree");
