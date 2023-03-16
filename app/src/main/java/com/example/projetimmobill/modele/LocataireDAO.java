@@ -98,8 +98,6 @@ public class LocataireDAO {
 
         String condition = "nom ='"+ancLocataire.getNom()+"' AND adresse='"+ancLocataire.getAdresse()+"'AND prenom='"+ancLocataire.getPrenom()+"'AND tel='"+ancLocataire.getTel()+
                 "'AND email='"+ancLocataire.getEmail()+"'AND commentaire='"+ancLocataire.getCommentaire()+"'";
-        String condition2 = "nom ='"+nvLocataire.getNom()+"' AND adresse='"+nvLocataire.getAdresse()+"'AND prenom='"+nvLocataire.getPrenom()+"'AND tel='"+nvLocataire.getTel()+
-                "'AND email='"+nvLocataire.getEmail()+"'AND commentaire='"+nvLocataire.getCommentaire()+"'";
 
         ret = bd.update("villa", value, condition ,null);
         return ret;
