@@ -38,7 +38,7 @@ public class VillaDAO {
     }
 
     private ArrayList<Villa> cursorToVillaArrayList(Cursor curseur) {
-        ArrayList<Villa> listeVilla = new ArrayList<Villa>();
+        ArrayList<Villa> listVilla = new ArrayList<Villa>();
         int id;
         String nom;
         String adresse;
@@ -62,10 +62,10 @@ public class VillaDAO {
             caution = curseur.getString(7);
             montant = curseur.getString(8);
             type = curseur.getInt(9);
-            listeVilla.add(new Villa(id, nom, adresse, description, pieces, surface, anneeConstruction, caution, montant, type));
+            listVilla.add(new Villa(id, nom, adresse, description, pieces, surface, anneeConstruction, caution, montant, type));
             curseur.moveToNext();
         }
-        return listeVilla;
+        return listVilla;
     }
     //FIN CONSULER----------------------------------------------------------------------------------
 
