@@ -117,7 +117,7 @@ public class AdminDetailsLocationActivity extends AppCompatActivity {
     public void delete(Villa uneVilla){
         SQLiteDatabase db = accesBD.getWritableDatabase();
         String cond="id='"+uneVilla.getId()+"'";
-        db.delete("Visiteur", cond, null);
+        db.delete("Villa", cond, null);
 
     }
 
