@@ -38,6 +38,6 @@ public class TypeVilla {
     }
 
     public String toString(){
-        return("id"+id+"nom"+nom+"nbCouchage"+nbCouchages);
+        return(nom) ;
     }
 }

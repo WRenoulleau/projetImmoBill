@@ -65,7 +65,7 @@ public class ChoixAdminActivity extends AppCompatActivity {
             }
         });
 
-        /*newLocataire=(Button)findViewById(R.id.btnAjouterLocataire);
+        newLocataire=(Button)findViewById(R.id.btnNewLocataire);
         newLocataire.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -74,7 +74,7 @@ public class ChoixAdminActivity extends AppCompatActivity {
             }
         });
 
-        /*newLocation=findViewById(R.id.btnAjouterLocation);
+        newLocation=findViewById(R.id.btnNewLocation);
         newLocation.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -83,7 +83,7 @@ public class ChoixAdminActivity extends AppCompatActivity {
             }
         });
 
-        newTypeVilla=findViewById(R.id.btnAjouterTypeVilla);
+        newTypeVilla=findViewById(R.id.btnNewTypeVilla);
         newTypeVilla.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -92,13 +92,13 @@ public class ChoixAdminActivity extends AppCompatActivity {
             }
         });
 
-        newUser=findViewById(R.id.btnAjouterUser);
+        newUser=findViewById(R.id.btnNewUser);
         newUser.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), AdminNewUserActivity.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 }
