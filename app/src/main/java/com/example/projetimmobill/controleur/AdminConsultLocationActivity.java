@@ -74,17 +74,6 @@ public class AdminConsultLocationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        int pos=getIntent().getIntExtra("pos", -1);
-        if(pos>=0){
-            nom=getIntent().getStringExtra("nom");
-            adresse=getIntent().getStringExtra("adresse");
-            surface=getIntent().getFloatExtra("surface", 0);
-            type=getIntent().getIntExtra("typeVilla",0);
-            annee=getIntent().getStringExtra("annee");
-            caution=getIntent().getStringExtra("caution");
-            description=getIntent().getStringExtra("desc");
-            pieces=getIntent().getStringExtra("descPieces");
-            montant=getIntent().getStringExtra("montant");
-        }
+
     }
 }
