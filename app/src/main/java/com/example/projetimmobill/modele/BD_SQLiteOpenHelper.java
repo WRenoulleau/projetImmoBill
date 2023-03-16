@@ -101,7 +101,7 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
                 "('La Margarita', '6 rue de l Italie', 'villa garnie', '2', '40', '2001', '120','100', '2'),\n" +
                 "('Le Grand Iban', '1 au sommet du monde', 'la meilleure villa', '3', '90', '2003', '3000','200', '3'),\n" +
                 "('La Foulque', '1 allee des debiles', 'une villa defaitiste', '1', '16', '2022', '200','26', '4'),\n" +
-                "('La Clarence', '9 rue Ronsard', 'villla avec 3 l ', '1', '21', '2020', '326','50', '1'),\n" +
+                "('La Clarence', '9 rue Ronsard', 'villa avec 3 l ', '1', '21', '2020', '326','50', '1'),\n" +
                 "('La Pouis Pastarac', '7 rue imaginaire', 'la pilla', '2', '45', '1936', '16','45', '2'),\n" +
                 "('El Magnifico Willem', '5 avenue des Champs Elysees', 'elle est a son prime', '3', '69', '1999', '1000','200', '3'),\n" +
                 "('La Sterenn', '5 chemin du bonheur', 'belle villa', '1', '23', '2002', '500000','5000', '4');");
