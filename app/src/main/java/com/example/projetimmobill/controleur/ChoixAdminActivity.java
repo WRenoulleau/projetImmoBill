@@ -22,7 +22,7 @@ public class ChoixAdminActivity extends AppCompatActivity {
         consultResa.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AdminDetailsReservationActivity.class);
+                Intent intent = new Intent(v.getContext(), AdminConsultReservationActivity.class);
                 startActivity(intent);
             }
         });
@@ -49,7 +49,7 @@ public class ChoixAdminActivity extends AppCompatActivity {
         consultTypeVilla.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AdminDetailsTypeVillaActivity.class);
+                Intent intent = new Intent(v.getContext(), AdminConsultTypeVillaActivity.class);
                 startActivity(intent);
             }
         });
@@ -60,7 +60,7 @@ public class ChoixAdminActivity extends AppCompatActivity {
         consultUser.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AdminDetailsUserActivity.class);
+                Intent intent = new Intent(v.getContext(), AdminConsultUserActivity.class);
                 startActivity(intent);
             }
         });
