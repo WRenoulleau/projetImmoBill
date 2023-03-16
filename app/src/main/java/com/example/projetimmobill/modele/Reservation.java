@@ -109,6 +109,14 @@ public class Reservation {
     }
 
     public String toString(){
-        return("id"+id+"dateArrivee"+dateArrivee+"dateDepart"+dateDepart+"nbAdults"+nbAdultes+"nbEnfants"+nbEnfants+"dateResa"+dateResa+"montant"+montant+"optionMenage"+optionMenage);
+        return("id "+id+" dateArrivee "+dateArrivee+" dateDepart "+dateDepart+" nbAdults "+nbAdultes+" nbEnfants "+nbEnfants+" dateResa "+dateResa+" montant "+montant+" optionMenage "+optionMenage+" idVilla "+idVilla+" idLocataire "+idLocataire);
+    }
+
+    public int getIdVilla() {
+        return idVilla;
+    }
+
+    public void setIdVilla(int idVilla) {
+        this.idVilla = idVilla;
     }
 }

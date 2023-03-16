@@ -30,6 +30,5 @@ public class AdminConsultUserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }
