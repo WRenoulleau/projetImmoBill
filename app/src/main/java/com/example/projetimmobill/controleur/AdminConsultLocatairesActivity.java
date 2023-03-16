@@ -71,18 +71,6 @@ public class AdminConsultLocatairesActivity extends AppCompatActivity {
             }
         });
 
-        int pos = getIntent().getIntExtra("pos", -1);
-        if (pos >= 0) {
-            nom = getIntent().getStringExtra("nom");
-            adresse = getIntent().getStringExtra("adresse");
-            prenom = getIntent().getStringExtra("prenom");
-            tel = getIntent().getStringExtra("tel");
-            email = getIntent().getStringExtra("email");
-            commentaire = getIntent().getStringExtra("commentaire");
-
-        }
-
-
         btnRetour = (Button) findViewById(R.id.btnRetour);
 
         btnRetour.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +80,5 @@ public class AdminConsultLocatairesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }

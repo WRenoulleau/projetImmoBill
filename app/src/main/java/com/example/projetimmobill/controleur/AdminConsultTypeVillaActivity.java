@@ -57,11 +57,7 @@ public class AdminConsultTypeVillaActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        int pos=getIntent().getIntExtra("pos", -1);
-        if(pos>=0){
-            nom=getIntent().getStringExtra("nom");
-            nbCouchages=getIntent().getStringExtra("nbCouchages");
-        }
+
 
     }
 }
