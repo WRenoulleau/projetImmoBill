@@ -94,7 +94,10 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
         db.execSQL(typeUser);
         db.execSQL(locataire);
         db.execSQL("INSERT INTO reservation(nbAdultes,id_Villa,dateDepart,dateArrivee,id_Locataire,montant,optionMenage,dateResa,nbEnfants) VALUES\n" +
-                "('2', '8', '20/03/2023', '17/03/2023', '1', '15000', 'Oui','14/03/2023', '3');");
+                "('2', '8', '20/03/2023', '17/03/2023', '1', '15000', 'Oui','13/03/2023', '3'),\n" +
+                "('3', '4', '17/03/2023', '16/03/2023', '3', '200', 'Oui','14/03/2023', '5'),\n" +
+                "('2', '3', '22/03/2023', '17/03/2023', '2', '500', 'Oui','15/03/2023', '1'),\n" +
+                "('1', '5', '30/03/2023', '23/03/2023', '2', '800', 'Non','16/03/2023', '0');");
 
         db.execSQL("INSERT INTO villa (nom, adresse, description, pieces, surface, anneeConstruction, caution,montant, id_TypeVilla) VALUES\n" +
                 "('La Alain Philippe', '84 rue du tourmalet', 'villa au sommet', '1', '20', '2000', '400','50', '1'),\n" +

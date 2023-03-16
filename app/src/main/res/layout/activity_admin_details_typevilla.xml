@@ -58,27 +58,27 @@
 
     <Button
         android:id="@+id/btnModifierTypeVilla"
-        android:layout_width="266dp"
+        android:layout_width="170dp"
         android:layout_height="46dp"
         android:text="Modifier"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.309" />
+        app:layout_constraintVertical_bias="0.321" />
 
     <Button
         android:id="@+id/btnSupprimerTypeVilla"
-        android:layout_width="266dp"
+        android:layout_width="170dp"
         android:layout_height="46dp"
         android:text="Supprimer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.929"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.376" />
+        app:layout_constraintVertical_bias="0.321" />
 
     <Button
         android:id="@+id/btnRetour"
