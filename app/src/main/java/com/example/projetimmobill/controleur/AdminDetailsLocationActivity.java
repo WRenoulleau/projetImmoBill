@@ -1,5 +1,6 @@
 package com.example.projetimmobill.controleur;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.projetimmobill.R;
+import com.example.projetimmobill.controleur.AdminConsultLocationActivity;
 import com.example.projetimmobill.modele.BD_SQLiteOpenHelper;
 import com.example.projetimmobill.modele.Villa;
 import com.example.projetimmobill.modele.VillaDAO;
@@ -71,8 +73,6 @@ public class AdminDetailsLocationActivity extends AppCompatActivity {
         editDescription.setText(description);
         editPieces.setText(pieces);
         editMontant.setText(montant);
-        VillaDAO villaAcces = new VillaDAO(this);
-;
 
 
         btnRetour = (Button) findViewById(R.id.btnRetour);
@@ -97,7 +97,7 @@ public class AdminDetailsLocationActivity extends AppCompatActivity {
         btnSupprimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                delete();
                 Intent intent = new Intent(v.getContext(), AdminConsultLocationActivity.class);
                 startActivity(intent);
             }
@@ -114,12 +114,12 @@ public class AdminDetailsLocationActivity extends AppCompatActivity {
                   montant, type);
         villaAcces.modifierVilla(uneVilla, ancVilla);
     }
-    public void delete(Villa uneVilla){
-        SQLiteDatabase db = accesBD.getWritableDatabase();
-        String cond="id='"+uneVilla.getId()+"'";
-        db.delete("Visiteur", cond, null);
 
+    private void delete(){
+        VillaDAO villaAcces = new VillaDAO(this);
+        Villa uneVilla= new Villa(id,editTitre.getText().toString(), editAdresse.getText().toString(),editDescription.getText().toString(),editPieces.getText().toString(), Float.valueOf(String.valueOf(editSurface.getText())), editAnnee.getText().toString(), editCaution.getText().toString(),
+                editMontant.getText().toString(),Integer.valueOf(String.valueOf(editMontant.getText())));
+        villaAcces.supprimerVilla(uneVilla);
     }
-
 
 }

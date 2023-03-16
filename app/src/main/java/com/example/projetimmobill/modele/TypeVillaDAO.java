@@ -30,7 +30,7 @@ public class TypeVillaDAO {
         return leTypeVilla;
     }
 
-    public ArrayList<TypeVilla> getTypeVilla() {
+    public ArrayList<TypeVilla> getTypeVillas() {
         Cursor curseur;
         String req = "select * from TypeVilla";
         curseur = accesBD.getReadableDatabase().rawQuery(req, null);
@@ -82,8 +82,7 @@ public class TypeVillaDAO {
         value.put("nbCouchages",nvTypeVilla.getNbCouchages());
 
 
-        String condition = "nom ='"+ancTypeVilla.getNom()+"' AND adresse='"+ancTypeVilla.getNbCouchages()+"'";
-        String condition2 = "nom ='"+nvTypeVilla.getNom()+"' AND adresse='"+nvTypeVilla.getNbCouchages()+"'";
+        String condition = "id ='"+nvTypeVilla.getId()+"'";
 
         ret = bd.update("TypeVilla", value, condition ,null);
         return ret;
