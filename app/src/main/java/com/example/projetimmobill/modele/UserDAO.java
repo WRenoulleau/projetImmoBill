@@ -1,7 +1,11 @@
 package com.example.projetimmobill.modele;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.wifi.p2p.WifiP2pManager;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -67,4 +71,46 @@ public class UserDAO {
         }
         return retour ;
     }
+    // AJOUTER--------------------------------------------------------------------------------------
+    public long addUser(User unUser) {
+        long ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+
+        ContentValues value = new ContentValues();
+        value.put("id", unUser.getId());
+        value.put("login", unUser.getLogin());
+        value.put("password", unUser.getPassword());
+        value.put("type", unUser.getType());
+        ret = bd.insert("user", null, value);
+
+        return ret;
+    } //FIN AJOUTER---------------------------------------------------------------------------------
+    //Modifier--------------------------------------------------------------------------------------
+    public int modifierUser(User nvUser, User ancUser){
+        int ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        ContentValues value = new ContentValues();
+
+        value.put("id",nvUser.getId());
+        value.put("login", nvUser.getLogin());
+        value.put("password", nvUser.getPassword());
+        value.put("type",nvUser.getType());
+
+
+
+        String condition = "id ='"+nvUser.getId()+"'";
+
+        ret = bd.update("user", value, condition ,null);
+        return ret;
+    }//Fin Modifier---------------------------------------------------------------------------------
+
+    //SUPPRIMER-------------------------------------------------------------------------------------
+    public long supprimerUser(User unUser){
+        long ret;
+        SQLiteDatabase bd = accesBD.getWritableDatabase();
+        String condition = "login ='"+unUser.getLogin()+"' AND password='"+unUser.getPassword()+"'";
+        Log.d("User supprime", condition);
+        ret = bd.delete("User", condition ,null);
+        return ret;
+    }//Fin SUPPRIMER--------------------------------------------------------------------------------
 }

@@ -76,7 +76,7 @@ public class LocataireDAO {
         value.put("tel", unLocataire.getTel());
         value.put("email", unLocataire.getEmail());
         value.put("commentaire", unLocataire.getCommentaire());
-        ret = bd.insert("Villa", null, value);
+        ret = bd.insert("Locataire", null, value);
 
         return ret;
     } //FIN AJOUTER
