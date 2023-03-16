@@ -8,8 +8,8 @@
 
     <ListView
         android:id="@+id/listLocataires"
-        android:layout_width="332dp"
-        android:layout_height="548dp"
+        android:layout_width="380dp"
+        android:layout_height="624dp"
         app:layout_constraintBottom_toTopOf="@+id/btnRetour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"

@@ -125,11 +125,7 @@ public class ReservationDAO {
         value.put("id_Locataire", nvReservation.getIdLocataire());
         value.put("id_Villa", nvReservation.getIdVilla());
 
-
-        String condition = "dateArrivee ='"+ancReservation.getDateArrivee()+"' AND dateDepart='"+ancReservation.getDateDepart()+"'AND nbAdultes='"+ancReservation.getNbAdultes()+"'AND nbEnfants='"+ancReservation.getNbEnfants()+
-                "'AND dateResa='"+ancReservation.getDateResa()+"'AND optionMenage='"+ancReservation.getOptionMenage()+"'AND montant='"+ancReservation.getMontant()+"'";
-        String condition2 = "dateArrivee ='"+nvReservation.getDateArrivee()+"' AND dateDepart='"+nvReservation.getDateDepart()+"'AND nbAdultes='"+nvReservation.getNbAdultes()+"'ANDnbEnfants='"+nvReservation.getNbEnfants()+
-                "'AND dateResa='"+nvReservation.getDateResa()+"'AND optionMenage='"+nvReservation.getOptionMenage()+"'AND montant='"+nvReservation.getMontant()+"'";
+        String condition = "id ='"+nvReservation.getId()+"'";
 
         ret = bd.update("reservation", value, condition ,null);
         return ret;
