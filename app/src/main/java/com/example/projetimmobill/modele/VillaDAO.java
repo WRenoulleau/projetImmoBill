@@ -118,7 +118,7 @@ public class VillaDAO {
     public long supprimerVilla(Villa uneVilla){
         long ret;
         SQLiteDatabase bd = accesBD.getWritableDatabase();
-        String condition = "nom ='"+uneVilla.getNom()+"' AND adresse='"+uneVilla.getAdresse()+"'";
+        String condition = "id='"+uneVilla.getId()+"'";
         Log.d("Villa supprime", condition);
         ret = bd.delete("Villa", condition ,null);
         return ret;
