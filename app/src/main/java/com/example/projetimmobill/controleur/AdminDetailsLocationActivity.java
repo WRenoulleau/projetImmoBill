@@ -115,6 +115,8 @@ public class AdminDetailsLocationActivity extends AppCompatActivity {
         villaAcces.modifierVilla(uneVilla, ancVilla);
     }
 
+
+
     private void delete(){
         VillaDAO villaAcces = new VillaDAO(this);
         Villa uneVilla= new Villa(id,editTitre.getText().toString(), editAdresse.getText().toString(),editDescription.getText().toString(),editPieces.getText().toString(), Float.valueOf(String.valueOf(editSurface.getText())), editAnnee.getText().toString(), editCaution.getText().toString(),
