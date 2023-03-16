@@ -30,6 +30,5 @@ public class AdminDetailsTypeVillaActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }

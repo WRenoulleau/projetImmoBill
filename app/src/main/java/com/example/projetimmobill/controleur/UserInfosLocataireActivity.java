@@ -141,8 +141,8 @@ public class UserInfosLocataireActivity extends AppCompatActivity {
                         dateResa,
                         montantTotalStr,
                         menageStr,
-                        idVilla,
-                        idLocataire);
+                        idLocataire,
+                        idVilla);
 
                 Log.d("log",Entite.toString());
 
