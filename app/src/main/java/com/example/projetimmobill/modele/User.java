@@ -48,6 +48,6 @@ public class User {
 
 
     public String toString(){
-        return("id"+id+"login"+login+"password"+password);
+        return("id"+id+"login"+login+"password"+password+"type"+type);
     }
 }

@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.projetimmobill.R;
+import com.example.projetimmobill.modele.Reservation;
+import com.example.projetimmobill.modele.ReservationDAO;
 import com.example.projetimmobill.modele.Villa;
 import com.example.projetimmobill.modele.VillaDAO;
 
@@ -20,7 +22,7 @@ import java.util.ArrayList;
 public class AdminConsultReservationActivity extends AppCompatActivity {
     private Button btnRetour;
     private ListView listReservation;
-    private ArrayList<Villa> lesVillas = new ArrayList<Villa>();
+    private ArrayList<Reservation> lesReservations = new ArrayList<Reservation>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +37,36 @@ public class AdminConsultReservationActivity extends AppCompatActivity {
             }
         });
         listReservation = (ListView) findViewById(R.id.listReservationAdmin);
-        VillaDAO resaAcces = new VillaDAO(this);
-        //------------> lesVillas = resaAcces.getVillas();
-        ArrayAdapter monAdapter = new ArrayAdapter(AdminConsultReservationActivity.this,android.R.layout.simple_list_item_1,lesVillas);
+
+
+        ReservationDAO resaAcces = new ReservationDAO(this);
+
+        lesReservations = resaAcces.getReservations();
+
+        ArrayAdapter monAdapter = new ArrayAdapter(AdminConsultReservationActivity.this,android.R.layout.simple_list_item_1,lesReservations);
+
+
         listReservation.setAdapter(monAdapter);
         listReservation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(AdminConsultReservationActivity.this,AdminDetailsReservationActivity.class);
-                startActivity(i);
-            }
-        });
+
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Reservation uneReservation= (Reservation) listReservation.getAdapter().getItem(position);
+                    Intent i = new Intent(AdminConsultReservationActivity.this,AdminDetailsReservationActivity.class);
+                    i.putExtra("id", uneReservation.getId());
+                    i.putExtra("dateArrivee", uneReservation.getDateArrivee());
+                    i.putExtra("dateDepart", uneReservation.getDateDepart());
+                    i.putExtra("nbAdultes", uneReservation.getNbAdultes());
+                    i.putExtra("nbEnfants", uneReservation.getNbEnfants());
+                    i.putExtra("dateResa", uneReservation.getDateResa());
+                    i.putExtra("montant", uneReservation.getMontant());
+                    i.putExtra("optionMenage", uneReservation.getOptionMenage());
+                    i.putExtra("id_Locataire", uneReservation.getIdLocataire());
+                    i.putExtra("id_Villa", uneReservation.getIdVilla());
+                    startActivity(i);
+                }
+            });
+
+
     }
 }

@@ -83,7 +83,7 @@ public class AdminDetailsLocataireActivity extends AppCompatActivity {
         btnSupprimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+            delete();
                 Intent intent = new Intent(v.getContext(), AdminConsultLocatairesActivity.class);
                 startActivity(intent);
             }
@@ -98,10 +98,12 @@ public class AdminDetailsLocataireActivity extends AppCompatActivity {
         Locataire ancLocataire = new Locataire(id,nom, adresse,prenom,tel, email, commentaire);
         locataireAcces.modifierLocataire(nvLocataire, ancLocataire);
     }
-    public void delete(Locataire unLocataire){
-        SQLiteDatabase db = accesBD.getWritableDatabase();
-        String cond="id='"+unLocataire.getId()+"'";
-        db.delete("Locataire", cond, null);
+
+    private void delete(){
+        LocataireDAO locataireAcces = new LocataireDAO(this);
+        Locataire unLocataire= new Locataire(id, editNom.getText().toString(),editPrenom.getText().toString(),editAdresse.getText().toString(), editTel.getText().toString(), editEmail.getText().toString(),
+                editCommentaire.getText().toString());
+        locataireAcces.supprimerLocataire(unLocataire);
 
     }
 

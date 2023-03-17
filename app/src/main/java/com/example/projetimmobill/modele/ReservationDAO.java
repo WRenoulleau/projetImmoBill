@@ -21,7 +21,7 @@ public class ReservationDAO {
     public Reservation getReservation(int id) {
         Reservation laReservation = null;
         Cursor curseur;
-        curseur = accesBD.getReadableDatabase().rawQuery("select * from Reservation where id=" + id + ";", null);
+        curseur = accesBD.getReadableDatabase().rawQuery("select * from reservation where id=" + id + ";", null);
         if (curseur.getCount() > 0) {
             curseur.moveToFirst();
             laReservation = new Reservation(id,curseur.getString(1), curseur.getString(2), curseur.getInt(3), curseur.getInt(4), curseur.getString(5), curseur.getString(6), curseur.getString(7),curseur.getInt(8),curseur.getInt(9));
@@ -29,9 +29,9 @@ public class ReservationDAO {
         return laReservation;
     }
 
-    public ArrayList<Reservation> getVilla() {
+    public ArrayList<Reservation> getReservations() {
         Cursor curseur;
-        String req = "select * from Réservation";
+        String req = "select * from reservation";
         curseur = accesBD.getReadableDatabase().rawQuery(req, null);
         return cursorToReservationArrayList(curseur);
     }
@@ -122,14 +122,12 @@ public class ReservationDAO {
         value.put("dateResa", nvReservation.getDateResa());
         value.put("montant",nvReservation.getMontant());
         value.put("optionMenage", nvReservation.getOptionMenage());
+        value.put("id_Locataire", nvReservation.getIdLocataire());
+        value.put("id_Villa", nvReservation.getIdVilla());
 
+        String condition = "id ='"+nvReservation.getId()+"'";
 
-        String condition = "dateArrivee ='"+ancReservation.getDateArrivee()+"' AND dateDepart='"+ancReservation.getDateDepart()+"'AND nbAdultes='"+ancReservation.getNbAdultes()+"'AND nbEnfants='"+ancReservation.getNbEnfants()+
-                "'AND dateResa='"+ancReservation.getDateResa()+"'AND optionMenage='"+ancReservation.getOptionMenage()+"'AND montant='"+ancReservation.getMontant()+"'";
-        String condition2 = "dateArrivee ='"+nvReservation.getDateArrivee()+"' AND dateDepart='"+nvReservation.getDateDepart()+"'AND nbAdultes='"+nvReservation.getNbAdultes()+"'ANDnbEnfants='"+nvReservation.getNbEnfants()+
-                "'AND dateResa='"+nvReservation.getDateResa()+"'AND optionMenage='"+nvReservation.getOptionMenage()+"'AND montant='"+nvReservation.getMontant()+"'";
-
-        ret = bd.update("villa", value, condition ,null);
+        ret = bd.update("reservation", value, condition ,null);
         return ret;
     }//Fin Modifier---------------------------------------------------------------------------------
 
@@ -139,7 +137,7 @@ public class ReservationDAO {
         SQLiteDatabase bd = accesBD.getWritableDatabase();
         String condition = "id ='"+uneReservation.getId()+"'";
         Log.d("Reservation supprime", condition);
-        ret = bd.delete("Reservation", condition ,null);
+        ret = bd.delete("reservation", condition ,null);
         return ret;
     }//Fin SUPPRIMER--------------------------------------------------------------------------------
 }
