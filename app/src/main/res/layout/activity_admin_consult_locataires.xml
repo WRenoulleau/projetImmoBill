@@ -9,13 +9,13 @@
     <ListView
         android:id="@+id/listLocataires"
         android:layout_width="380dp"
-        android:layout_height="624dp"
+        android:layout_height="600dp"
         app:layout_constraintBottom_toTopOf="@+id/btnRetour"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintVertical_bias="0.724" />
 
     <Button
         android:id="@+id/btnRetour"
