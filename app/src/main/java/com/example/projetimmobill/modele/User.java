@@ -4,22 +4,16 @@ public class User {
     private int id;
     private String login;
     private String password;
-    private int type;
+    private int id_TypeUser;
 
     public User(int id, String login, String password, int type){
         this.id=id;
         this.login=login;
         this.password=password;
-        this.type=type;
+        this.id_TypeUser=type;
     }
 
-    public int getType() {
-        return type;
-    }
 
-    public void setType(int type) {
-        this.type = type;
-    }
 
     public int getId() {
         return id;
@@ -45,9 +39,17 @@ public class User {
         this.password = password;
     }
 
+    public int getType() {
+        return id_TypeUser;
+    }
+
+    public void setType(int type) {
+        this.id_TypeUser = type;
+    }
+
 
 
     public String toString(){
-        return("id"+id+"login"+login+"password"+password+"type"+type);
+        return(login);
     }
 }

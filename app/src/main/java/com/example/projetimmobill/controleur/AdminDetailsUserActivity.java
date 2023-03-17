@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +27,7 @@ public class AdminDetailsUserActivity extends AppCompatActivity {
     private int id;
     private String login;
     private String password;
-    private int type;
+    private int id_TypeUser;
     private ArrayList<User> lesUser = new ArrayList<User>();
     BD_SQLiteOpenHelper accesBD;
 
@@ -39,20 +40,14 @@ public class AdminDetailsUserActivity extends AppCompatActivity {
         editPassword = (EditText) findViewById(R.id.editPassword);
         editType = (EditText) findViewById(R.id.editTypeUser);
 
-
-
+        id=getIntent().getIntExtra("id",0);
         login=getIntent().getStringExtra("login");
         password=getIntent().getStringExtra("password");
-        type=getIntent().getIntExtra("type",0);
-
-
-
+        id_TypeUser=getIntent().getIntExtra("id_TypeUser",0);
 
         editLogin.setText(login);
         editPassword.setText(password);
-        editType.setText(String.valueOf(type));
-
-
+        editType.setText(String.valueOf(id_TypeUser));
 
         btnRetour = (Button) findViewById(R.id.btnRetour);
         btnModifier=(Button) findViewById(R.id.btnModifierUser);
@@ -81,24 +76,18 @@ public class AdminDetailsUserActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
     private void update(){
        UserDAO userAcces = new UserDAO(this);
-        ArrayList<User> lesUser;
-        lesUser = userAcces.getUsers();
+
         User nvUser= new User(id, editLogin.getText().toString(),editPassword.getText().toString(),Integer.valueOf(String.valueOf(editType.getText())));
-        User ancUser = new User(id,login, password,type);
-        userAcces.modifierUser(nvUser, ancUser);
+        User ancUser = new User(id,login, password,id_TypeUser);
+        userAcces.modifierUser( nvUser,ancUser);
     }
-
-
 
     private void delete(){
         UserDAO userAcces = new UserDAO(this);
-        User nvUser= new User(id, editLogin.getText().toString(),editPassword.getText().toString(),Integer.valueOf(String.valueOf(editType.getText())));
-        userAcces.supprimerUser(nvUser);
+        User unUser= new User(id, editLogin.getText().toString(),editPassword.getText().toString(),Integer.valueOf(String.valueOf(editType.getText())));
+        userAcces.supprimerUser(unUser);
     }
-
-
 }

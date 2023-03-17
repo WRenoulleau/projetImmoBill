@@ -107,7 +107,7 @@ public class BD_SQLiteOpenHelper extends SQLiteOpenHelper {
                 "('La Clarence', '9 rue Ronsard', 'villa avec 3 l ', '1', '21', '2020', '326','50', '1'),\n" +
                 "('La Pouis Pastarac', '7 rue imaginaire', 'la pilla', '2', '45', '1936', '16','45', '2'),\n" +
                 "('El Magnifico Willem', '5 avenue des Champs Elysees', 'elle est a son prime', '3', '69', '1999', '1000','200', '3'),\n" +
-                "('La Sterenn', '5 chemin du bonheur', 'belle villa', '1', '23', '2002', '500000','5000', '4');");
+                "('La Stérenn', '5 chemin du bonheur', 'belle villa', '1', '23', '2002', '500000','5000', '4');");
 
         db.execSQL("INSERT INTO typeVilla (nom,nbCouchages) VALUES\n" +
                 "('T1', '1'),\n" +
