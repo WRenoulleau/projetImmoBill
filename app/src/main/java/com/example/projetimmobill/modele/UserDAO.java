@@ -80,7 +80,7 @@ public class UserDAO {
         value.put("id", unUser.getId());
         value.put("login", unUser.getLogin());
         value.put("password", unUser.getPassword());
-        value.put("type", unUser.getType());
+        value.put("id_TypeUser", unUser.getType());
         ret = bd.insert("user", null, value);
 
         return ret;
@@ -91,25 +91,23 @@ public class UserDAO {
         SQLiteDatabase bd = accesBD.getWritableDatabase();
         ContentValues value = new ContentValues();
 
+        Integer ancId=ancUser.getId();
         value.put("id",nvUser.getId());
         value.put("login", nvUser.getLogin());
         value.put("password", nvUser.getPassword());
-        value.put("type",nvUser.getType());
-
-
-
+        value.put("id_TypeUser",nvUser.getType());
         String condition = "id ='"+nvUser.getId()+"'";
-
+        Log.d("******",condition);
         ret = bd.update("user", value, condition ,null);
         return ret;
-    }//Fin Modifier---------------------------------------------------------------------------------
+    }
+    //Fin Modifier---------------------------------------------------------------------------------
 
     //SUPPRIMER-------------------------------------------------------------------------------------
     public long supprimerUser(User unUser){
         long ret;
         SQLiteDatabase bd = accesBD.getWritableDatabase();
-        String condition = "login ='"+unUser.getLogin()+"' AND password='"+unUser.getPassword()+"'";
-        Log.d("User supprime", condition);
+        String condition = "id ='"+unUser.getId()+"'";
         ret = bd.delete("User", condition ,null);
         return ret;
     }//Fin SUPPRIMER--------------------------------------------------------------------------------
