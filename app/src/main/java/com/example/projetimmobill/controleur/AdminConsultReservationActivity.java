@@ -28,10 +28,7 @@ public class AdminConsultReservationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_consult_reservation);
-
-
         btnRetour = (Button) findViewById(R.id.btnRetour);
-
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,8 +36,8 @@ public class AdminConsultReservationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         listReservation = (ListView) findViewById(R.id.listReservationAdmin);
+
 
         ReservationDAO resaAcces = new ReservationDAO(this);
 
@@ -48,9 +45,10 @@ public class AdminConsultReservationActivity extends AppCompatActivity {
 
         ArrayAdapter monAdapter = new ArrayAdapter(AdminConsultReservationActivity.this,android.R.layout.simple_list_item_1,lesReservations);
 
-        listReservation.setAdapter(monAdapter);
 
+        listReservation.setAdapter(monAdapter);
         listReservation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Reservation uneReservation= (Reservation) listReservation.getAdapter().getItem(position);
@@ -68,6 +66,7 @@ public class AdminConsultReservationActivity extends AppCompatActivity {
                     startActivity(i);
                 }
             });
+
 
     }
 }

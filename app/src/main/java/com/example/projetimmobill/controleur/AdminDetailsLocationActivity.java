@@ -38,8 +38,6 @@ public class AdminDetailsLocationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_details_location);
-
-
         editTitre = (EditText) findViewById(R.id.editNomLoc);
         editAdresse = (EditText) findViewById(R.id.editAdresse);
         editSurface = (EditText) findViewById(R.id.editSurface);
@@ -62,8 +60,6 @@ public class AdminDetailsLocationActivity extends AppCompatActivity {
         pieces=getIntent().getStringExtra("descPieces");
         montant=getIntent().getStringExtra("montant");
 
-
-
         editTitre.setText(nom);
         editAdresse.setText(adresse);
         editSurface.setText(String.valueOf(surface));
@@ -74,11 +70,9 @@ public class AdminDetailsLocationActivity extends AppCompatActivity {
         editPieces.setText(pieces);
         editMontant.setText(montant);
 
-
         btnRetour = (Button) findViewById(R.id.btnRetour);
         btnModifier=(Button) findViewById(R.id.btnModifierLocation);
         btnSupprimer=(Button) findViewById(R.id.btnSupprimerLocation);
-
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,8 +96,7 @@ public class AdminDetailsLocationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        }
+    }
     private void update(){
         VillaDAO villaAcces = new VillaDAO(this);
         ArrayList<Villa> listVilla;
@@ -114,9 +107,6 @@ public class AdminDetailsLocationActivity extends AppCompatActivity {
                   montant, type);
         villaAcces.modifierVilla(uneVilla, ancVilla);
     }
-
-
-
     private void delete(){
         VillaDAO villaAcces = new VillaDAO(this);
         Villa uneVilla= new Villa(id,editTitre.getText().toString(), editAdresse.getText().toString(),editDescription.getText().toString(),editPieces.getText().toString(), Float.valueOf(String.valueOf(editSurface.getText())), editAnnee.getText().toString(), editCaution.getText().toString(),

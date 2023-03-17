@@ -30,12 +30,11 @@ public class AdminConsultTypeVillaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_consult_typevilla);
-        listType=(ListView)findViewById(R.id.listTypeVilla);
         TypeVillaDAO typeAcces = new TypeVillaDAO(this);
         lesTypes=typeAcces.getTypeVillas();
         ArrayAdapter monAdapter = new ArrayAdapter(AdminConsultTypeVillaActivity.this,android.R.layout.simple_list_item_1,lesTypes);
         listType.setAdapter(monAdapter);
-
+        listType=(ListView)findViewById(R.id.listTypeVilla);
         listType.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -48,7 +47,6 @@ public class AdminConsultTypeVillaActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
         btnRetour = (Button) findViewById(R.id.btnRetour);
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +55,5 @@ public class AdminConsultTypeVillaActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 }

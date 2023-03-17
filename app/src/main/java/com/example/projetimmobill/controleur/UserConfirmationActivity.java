@@ -18,7 +18,6 @@ public class UserConfirmationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_confirmation);
-
         btnRetour = (Button) findViewById(R.id.btnRetourAccueil);
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,7 +26,6 @@ public class UserConfirmationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         montantStr=getIntent().getStringExtra("montant");
         textMontant=findViewById(R.id.textMontant);
         textMontant.setText(montantStr+"€");

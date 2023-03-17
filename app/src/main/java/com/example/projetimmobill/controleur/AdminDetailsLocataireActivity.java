@@ -39,12 +39,6 @@ public class AdminDetailsLocataireActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_details_locataire);
-
-
-
-
-
-
         editId = (EditText) findViewById(R.id.editIdLocataire);
         editAdresse = (EditText) findViewById(R.id.editAdresse);
         editNom = (EditText) findViewById(R.id.editPrenom2);
@@ -52,7 +46,6 @@ public class AdminDetailsLocataireActivity extends AppCompatActivity {
         editTel = (EditText) findViewById(R.id.editTel);
         editEmail = (EditText) findViewById(R.id.editEmail);
         editCommentaire = (EditText) findViewById(R.id.editCommentaire);
-
 
         id=getIntent().getIntExtra("id",0);
         nom=getIntent().getStringExtra("nom");
@@ -62,8 +55,6 @@ public class AdminDetailsLocataireActivity extends AppCompatActivity {
         email=getIntent().getStringExtra("email");
         commentaire=getIntent().getStringExtra("commentaire");
 
-
-
         editAdresse.setText(adresse);
         editNom.setText(String.valueOf(nom));
         editPrenom.setText(prenom);
@@ -71,12 +62,9 @@ public class AdminDetailsLocataireActivity extends AppCompatActivity {
         editEmail.setText(email);
         editCommentaire.setText(commentaire);
 
-        LocataireDAO locataireAcces = new LocataireDAO(this);
-
         btnRetour = (Button) findViewById(R.id.btnRetour);
         btnModifier=(Button) findViewById(R.id.btnModifierLocataire);
         btnSupprimer=(Button) findViewById(R.id.btnSupprimerLocataire);
-
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,7 +88,6 @@ public class AdminDetailsLocataireActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
     private void update(){
         LocataireDAO locataireAcces = new LocataireDAO(this);
@@ -111,11 +98,13 @@ public class AdminDetailsLocataireActivity extends AppCompatActivity {
         Locataire ancLocataire = new Locataire(id,nom, adresse,prenom,tel, email, commentaire);
         locataireAcces.modifierLocataire(nvLocataire, ancLocataire);
     }
+
     private void delete(){
         LocataireDAO locataireAcces = new LocataireDAO(this);
         Locataire unLocataire= new Locataire(id, editNom.getText().toString(),editPrenom.getText().toString(),editAdresse.getText().toString(), editTel.getText().toString(), editEmail.getText().toString(),
                 editCommentaire.getText().toString());
         locataireAcces.supprimerLocataire(unLocataire);
+
     }
 
 }

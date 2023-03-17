@@ -43,6 +43,7 @@ public class AdminDetailsReservationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_details_reservation);
 
+
         editArrivee = (EditText) findViewById(R.id.editDateArrivee);
         editDepart = (EditText) findViewById(R.id.editDateDepart);
         editAdultes = (EditText) findViewById(R.id.editNbAdultes);
@@ -73,6 +74,7 @@ public class AdminDetailsReservationActivity extends AppCompatActivity {
         editMenage.setText(menage);
         editLocataire.setText(String.valueOf(locataire));
         editVilla.setText(String.valueOf(villa));
+
 
 
         btnRetour = (Button) findViewById(R.id.btnRetour);

@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         editLogin=findViewById(R.id.editIdentifiant);
         editMdp=findViewById(R.id.editMdp);
         UserDAO userAcces = new UserDAO(this);
-
         connexion.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -51,6 +50,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 }
