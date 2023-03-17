@@ -34,6 +34,7 @@ public class AdminConsultLocatairesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_consult_locataires);
+        listview = (ListView) findViewById(R.id.listLocataires);
         LocataireDAO locataireDAO = new LocataireDAO(getApplicationContext());
         ArrayList<Locataire> ok = locataireDAO.getLocataire();
         ArrayAdapter<Locataire> v = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ok);

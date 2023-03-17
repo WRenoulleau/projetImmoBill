@@ -31,11 +31,12 @@ public class AdminConsultLocationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_consult_location);
+        listLoc=(ListView)findViewById(R.id.listLocations);
         VillaDAO villaAcces = new VillaDAO(this);
         lesVillas=villaAcces.getVillas();
         ArrayAdapter monAdapter = new ArrayAdapter(AdminConsultLocationActivity.this,android.R.layout.simple_list_item_1,lesVillas);
         listLoc.setAdapter(monAdapter);
-        listLoc=(ListView)findViewById(R.id.listLocations);
+
         listLoc.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
