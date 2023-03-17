@@ -26,7 +26,6 @@ public class ChoixAdminActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         consultLocataire=findViewById(R.id.btnConsultLocataire);
         consultLocataire.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -35,7 +34,6 @@ public class ChoixAdminActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         consultLocation=findViewById(R.id.btnConsultLocation);
         consultLocation.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -44,7 +42,6 @@ public class ChoixAdminActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         consultTypeVilla=findViewById(R.id.btnConsultTypeVilla);
         consultTypeVilla.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -53,9 +50,6 @@ public class ChoixAdminActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
         consultUser=findViewById(R.id.btnConsultUser);
         consultUser.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -73,7 +67,6 @@ public class ChoixAdminActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         newLocation=findViewById(R.id.btnNewLocation);
         newLocation.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -82,7 +75,6 @@ public class ChoixAdminActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         newTypeVilla=findViewById(R.id.btnNewTypeVilla);
         newTypeVilla.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -91,7 +83,6 @@ public class ChoixAdminActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         newUser=findViewById(R.id.btnNewUser);
         newUser.setOnClickListener(new View.OnClickListener(){
             @Override

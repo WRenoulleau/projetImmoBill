@@ -32,7 +32,6 @@ public class AdminNewTypeVillaActivity extends AppCompatActivity {
         editNbCouchages = (EditText) findViewById(R.id.editNbCouchages);
         btnRetour = (Button) findViewById(R.id.btnRetour);
         btnAjouter = (Button) findViewById(R.id.btnAjouterTypeVilla);
-
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

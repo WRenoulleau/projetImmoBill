@@ -36,10 +36,8 @@ public class AdminNewLocationActivity extends AppCompatActivity {
         editDescription = (EditText) findViewById(R.id.editDescription);
         editPieces = (EditText) findViewById(R.id.editDescPieces);
         editMontant = (EditText) findViewById(R.id.editMontant);
-
         btnRetour = (Button) findViewById(R.id.btnRetour);
         btnAjouter = (Button) findViewById(R.id.btnAjouterLocation);
-
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,14 +65,12 @@ public class AdminNewLocationActivity extends AppCompatActivity {
         editDescription = (EditText) findViewById(R.id.editDescription);
         editPieces = (EditText) findViewById(R.id.editDescPieces);
         editMontant = (EditText) findViewById(R.id.editMontant);
-
         VillaDAO villaAcces = new VillaDAO(this);
         Villa uneVilla= new Villa(0,editTitre.getText().toString(), editAdresse.getText().toString(),editDescription.getText().toString(),editPieces.getText().toString(), Float.valueOf(String.valueOf(editSurface.getText())), editAnnee.getText().toString(), editCaution.getText().toString(),
                 editMontant.getText().toString(),Integer.valueOf(String.valueOf(editMontant.getText())));
         villaAcces.addVilla(uneVilla);
         ArrayList<Villa> listVilla;
         listVilla = villaAcces.getVillas();
-
         Iterator<Villa> itVilla;
         Villa laVilla;
         for( itVilla = listVilla.iterator(); itVilla.hasNext(); ){

@@ -23,28 +23,19 @@ public class AdminConsultLocationActivity extends AppCompatActivity {
     private ListView listLoc;
     private ArrayList<Villa> lesVillas = new ArrayList<Villa>();
     private int id;
-    private String nom;
-    private String adresse;
-    private String annee;
-    private String description;
-    private String pieces;
+    private String nom, adresse, annee, description, pieces, caution, montant;
     private float surface;
-    private String caution;
-    private String montant;
     private int type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_consult_location);
-
-
-        listLoc=(ListView)findViewById(R.id.listLocations);
         VillaDAO villaAcces = new VillaDAO(this);
         lesVillas=villaAcces.getVillas();
         ArrayAdapter monAdapter = new ArrayAdapter(AdminConsultLocationActivity.this,android.R.layout.simple_list_item_1,lesVillas);
         listLoc.setAdapter(monAdapter);
-
+        listLoc=(ListView)findViewById(R.id.listLocations);
         listLoc.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -64,9 +55,7 @@ public class AdminConsultLocationActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
         btnRetour = (Button) findViewById(R.id.btnRetour);
-
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +63,5 @@ public class AdminConsultLocationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }

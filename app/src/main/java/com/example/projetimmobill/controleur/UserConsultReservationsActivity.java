@@ -27,14 +27,11 @@ public class UserConsultReservationsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_consult_reservations);
-
-
         listResa=(ListView)findViewById(R.id.listMesReservations);
         VillaDAO villaAcces = new VillaDAO(this);
         lesVillas=villaAcces.getVillas();
         ArrayAdapter monAdapter = new ArrayAdapter(UserConsultReservationsActivity.this,android.R.layout.simple_list_item_1,lesVillas);
         listResa.setAdapter(monAdapter);
-
         btnRetour = (Button) findViewById(R.id.btnRetour);
         btnRetour.setOnClickListener(new View.OnClickListener(){
             @Override

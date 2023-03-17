@@ -30,21 +30,17 @@ public class AdminDetailsTypeVillaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_details_typevilla);
-
-
-        btnRetour = (Button) findViewById(R.id.btnRetour);
-        btnModifier = (Button) findViewById(R.id.btnModifierTypeVilla);
-        btnSupprimer = (Button) findViewById(R.id.btnSupprimerTypeVilla);
         editNom = (EditText) findViewById(R.id.editNomTypeVilla);
         editNbCouchages = (EditText) findViewById(R.id.editNbCouchages);
 
         id=getIntent().getIntExtra("id",0);
         nom=getIntent().getStringExtra("nom");
         nbCouchages=getIntent().getIntExtra("nbCouchages",0);
-
         editNom.setText(nom);
         editNbCouchages.setText(String.valueOf(nbCouchages));
-
+        btnRetour = (Button) findViewById(R.id.btnRetour);
+        btnModifier = (Button) findViewById(R.id.btnModifierTypeVilla);
+        btnSupprimer = (Button) findViewById(R.id.btnSupprimerTypeVilla);
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +64,6 @@ public class AdminDetailsTypeVillaActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
     private void update(){
         TypeVillaDAO typeAcces = new TypeVillaDAO(this);

@@ -30,9 +30,7 @@ public class UserInfosReservationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_infos_reservation);
-
         btnRetour = (Button) findViewById(R.id.btnRetour);
-
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +48,6 @@ public class UserInfosReservationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         textTitre = (TextView) findViewById(R.id.textTitre);
         textAdresse = (TextView) findViewById(R.id.textAdresse);
         textSurface = (TextView) findViewById(R.id.textSurface);
@@ -61,7 +58,6 @@ public class UserInfosReservationActivity extends AppCompatActivity {
         textDescription = (TextView) findViewById(R.id.textDescription);
         textPieces = (TextView) findViewById(R.id.textDescPieces);
         textMontant = (TextView) findViewById(R.id.textMontant);
-
         id=getIntent().getIntExtra("id",0);
         nom=getIntent().getStringExtra("nom");
         adresse=getIntent().getStringExtra("adresse");
@@ -72,12 +68,8 @@ public class UserInfosReservationActivity extends AppCompatActivity {
         description=getIntent().getStringExtra("desc");
         pieces=getIntent().getStringExtra("descPieces");
         montant=getIntent().getStringExtra("montant");
-
-
         TypeVillaDAO resaAcces = new TypeVillaDAO(this);
         TypeVilla typeV = resaAcces.getTypeVilla(type);
-
-
         textTitre.setText(nom);
         textAdresse.setText("Adresse : " + adresse);
         textSurface.setText("Surface : " + String.valueOf(surface)+"m²");
@@ -88,6 +80,5 @@ public class UserInfosReservationActivity extends AppCompatActivity {
         textDescription.setText("Description : "+ description);
         textPieces.setText("Nombre de pieces : "+pieces);
         textMontant.setText("Montant par jour : "+ montant+"€");
-
     }
 }

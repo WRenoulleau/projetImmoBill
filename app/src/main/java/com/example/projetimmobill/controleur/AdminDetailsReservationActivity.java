@@ -20,7 +20,6 @@ public class AdminDetailsReservationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_details_reservation);
 
-
         btnRetour = (Button) findViewById(R.id.btnRetour);
 
         btnRetour.setOnClickListener(new View.OnClickListener() {

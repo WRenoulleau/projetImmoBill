@@ -24,9 +24,7 @@ public class UserNewReservationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_new_reservation);
-
         btnRetour = (Button) findViewById(R.id.btnRetour);
-
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,17 +32,11 @@ public class UserNewReservationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         listReservation = (ListView) findViewById(R.id.listReservation);
-
         VillaDAO resaAcces = new VillaDAO(this);
-
         lesVillas = resaAcces.getVillas();
-
         ArrayAdapter monAdapter = new ArrayAdapter(UserNewReservationActivity.this,android.R.layout.simple_list_item_1,lesVillas);
-
         listReservation.setAdapter(monAdapter);
-
         listReservation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

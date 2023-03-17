@@ -30,29 +30,19 @@ public class AdminConsultLocatairesActivity extends AppCompatActivity {
     private String email;
     private String commentaire;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_consult_locataires);
-
-
-        listview = (ListView) findViewById(R.id.listLocataires);
         LocataireDAO locataireDAO = new LocataireDAO(getApplicationContext());
-
         ArrayList<Locataire> ok = locataireDAO.getLocataire();
         ArrayAdapter<Locataire> v = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ok);
         listview.setAdapter(v);
-
-
         LocataireDAO resaAcces = new LocataireDAO(this);
-
         lesLocataires = resaAcces.getLocataire();
-
         ArrayAdapter monAdapter = new ArrayAdapter(AdminConsultLocatairesActivity.this, android.R.layout.simple_list_item_1, lesLocataires);
-
+        listview = (ListView) findViewById(R.id.listLocataires);
         listview.setAdapter(monAdapter);
-
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -66,13 +56,10 @@ public class AdminConsultLocatairesActivity extends AppCompatActivity {
                 i.putExtra("tel", selectedItem.getTel());
                 i.putExtra("email", selectedItem.getEmail());
                 i.putExtra("commentaire", selectedItem.getCommentaire());
-
                 startActivity(i);
             }
         });
-
         btnRetour = (Button) findViewById(R.id.btnRetour);
-
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

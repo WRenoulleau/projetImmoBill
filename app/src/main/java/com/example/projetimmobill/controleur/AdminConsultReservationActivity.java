@@ -26,10 +26,7 @@ public class AdminConsultReservationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_consult_reservation);
-
-
         btnRetour = (Button) findViewById(R.id.btnRetour);
-
         btnRetour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,17 +34,11 @@ public class AdminConsultReservationActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         listReservation = (ListView) findViewById(R.id.listReservationAdmin);
-
         VillaDAO resaAcces = new VillaDAO(this);
-
         //------------> lesVillas = resaAcces.getVillas();
-
         ArrayAdapter monAdapter = new ArrayAdapter(AdminConsultReservationActivity.this,android.R.layout.simple_list_item_1,lesVillas);
-
         listReservation.setAdapter(monAdapter);
-
         listReservation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -55,6 +46,5 @@ public class AdminConsultReservationActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
     }
 }
