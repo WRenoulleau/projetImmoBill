@@ -77,7 +77,7 @@ public class UserDAO {
         SQLiteDatabase bd = accesBD.getWritableDatabase();
 
         ContentValues value = new ContentValues();
-        value.put("id", unUser.getId());
+        //value.put("id", unUser.getId());
         value.put("login", unUser.getLogin());
         value.put("password", unUser.getPassword());
         value.put("id_TypeUser", unUser.getType());

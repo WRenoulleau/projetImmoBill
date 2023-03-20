@@ -69,7 +69,7 @@ public class LocataireDAO {
         SQLiteDatabase bd = accesBD.getWritableDatabase();
 
         ContentValues value = new ContentValues();
-        value.put("id", unLocataire.getId());
+        //value.put("id", unLocataire.getId());
         value.put("nom", unLocataire.getNom());
         value.put("prenom", unLocataire.getPrenom());
         value.put("adresse", unLocataire.getAdresse());
