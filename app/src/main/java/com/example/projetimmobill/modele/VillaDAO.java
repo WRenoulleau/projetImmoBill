@@ -75,7 +75,7 @@ public class VillaDAO {
         SQLiteDatabase bd = accesBD.getWritableDatabase();
 
         ContentValues value = new ContentValues();
-        value.put("id", uneVilla.getId());
+        //value.put("id", uneVilla.getId());
         value.put("nom", uneVilla.getNom());
         value.put("adresse", uneVilla.getAdresse());
         value.put("description", uneVilla.getDescription());

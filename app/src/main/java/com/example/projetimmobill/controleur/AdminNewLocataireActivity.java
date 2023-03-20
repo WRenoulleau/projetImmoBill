@@ -64,7 +64,7 @@ public class AdminNewLocataireActivity extends AppCompatActivity {
 
 
             LocataireDAO locataireAcces = new LocataireDAO(this);
-            Locataire unLocataire= new Locataire(0, editNom.getText().toString(),editAdresse.getText().toString(),editPrenom.getText().toString(), editTel.getText().toString(), editEmail.getText().toString(),
+            Locataire unLocataire= new Locataire(0, editNom.getText().toString(),editPrenom.getText().toString(),editAdresse.getText().toString(), editTel.getText().toString(), editEmail.getText().toString(),
                     editCommentaire.getText().toString());
             locataireAcces.addLocataire(unLocataire);
             ArrayList<Locataire> listeLocataires;

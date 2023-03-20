@@ -61,7 +61,7 @@ public class TypeVillaDAO {
         SQLiteDatabase bd = accesBD.getWritableDatabase();
 
         ContentValues value = new ContentValues();
-        value.put("id", unTypeVilla.getId());
+        //value.put("id", unTypeVilla.getId());
         value.put("nom", unTypeVilla.getNom());
         value.put("nbCouchages", unTypeVilla.getNbCouchages());
 
