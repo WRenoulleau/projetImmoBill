@@ -31,7 +31,6 @@ public class AdminDetailsLocationActivity extends AppCompatActivity {
     private String caution;
     private String montant;
     private int type;
-    private int leType;
     private ArrayList<Villa> lesVillas = new ArrayList<Villa>();
     BD_SQLiteOpenHelper accesBD;
     @Override
@@ -56,7 +55,7 @@ public class AdminDetailsLocationActivity extends AppCompatActivity {
         type=getIntent().getIntExtra("typeVilla",0);
         annee=getIntent().getStringExtra("annee");
         caution=getIntent().getStringExtra("caution");
-        description=getIntent().getStringExtra("desc");
+        description=getIntent().getStringExtra("description");
         pieces=getIntent().getStringExtra("descPieces");
         montant=getIntent().getStringExtra("montant");
 
